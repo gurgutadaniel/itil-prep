@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>ITIL Foundation V5 Practice Simulator</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HOME / MODE SELECTION
+========================================================= -->
+
+<section
+    id="modeScreen"
+    class="mode-screen"
+>
+
+    <div class="mode-box">
+
+
+        <!-- BRAND -->
+
+       <div class="mode-brand">
+
+
+<div class="logo">
+    ITIL
+</div>
+
+<div class="mode-brand-text">
+
+    <strong>
+        ITIL V5
+    </strong>
+
+    <span>
+        Foundation Simulator
+    </span>
+
+</div>
+
+
+</div>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="mode-content">
+
+            <h1>
+                Choose your mode
+            </h1>
+
+            <p class="mode-description">
+                Select how you want to practice before starting the test.
+            </p>
+
+
+            <div class="mode-options">
+
+
+                <!-- =================================================
+                     PRACTICE MODE
+                ================================================== -->
+
+                <button
+                    id="practiceMode"
+                    class="mode-card"
+                    type="button"
+                >
+
+                    <div class="mode-icon practice-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="mode-text">
+
+                        <h2>
+                            Practice Mode
+                        </h2>
+
+                        <p>
+                            Get immediate feedback after every answer.
+                            See the correct answer and explanation.
+                        </p>
+
+                        <span class="mode-feature">
+                            Immediate feedback
+                        </span>
+
+                    </div>
+
+
+                    <span class="mode-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- =================================================
+                     EXAM MODE
+                ================================================== -->
+
+                <button
+                    id="examMode"
+                    class="mode-card"
+                    type="button"
+                >
+
+                    <div class="mode-icon exam-icon">
+                        ⏱
+                    </div>
+
+
+                    <div class="mode-text">
+
+                        <h2>
+                            Exam Mode
+                        </h2>
+
+                        <p>
+                            Simulate the real exam experience.
+                            No feedback until you finish.
+                        </p>
+
+                        <span class="mode-feature">
+                            40 questions · 60 minutes
+                        </span>
+
+                    </div>
+
+
+                    <span class="mode-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- =================================================
+                     HISTORY
+                ================================================== -->
+
+                <button
+                    id="historyMode"
+                    class="mode-card"
+                    type="button"
+                >
+
+                    <div class="mode-icon history-icon">
+                        ↺
+                    </div>
+
+
+                    <div class="mode-text">
+
+                        <h2>
+                            History
+                        </h2>
+
+                        <p>
+                            View your last 10 Exam Mode results
+                            saved on this computer.
+                        </p>
+
+                        <span class="mode-feature">
+                            Last 10 exam attempts
+                        </span>
+
+                    </div>
+
+
+                    <span class="mode-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 GENERAL INFO
+            ================================================== -->
+
+            <div class="mode-info">
+
+                <div>
+
+                    <b>
+                        40
+                    </b>
+
+                    <span>
+                        Questions
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <b>
+                        60
+                    </b>
+
+                    <span>
+                        Minutes
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <b>
+                        65%
+                    </b>
+
+                    <span>
+                        Pass mark
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DISCLAIMER -->
+
+        <p class="mode-disclaimer">
+
+            Independent educational software.
+            Not affiliated with or endorsed by PeopleCert,
+            AXELOS, or the owners of ITIL intellectual property.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HISTORY SCREEN
+========================================================= -->
+
+<section
+    id="historyScreen"
+    class="history-screen"
+    hidden
+>
+
+    <div class="history-box">
+
+
+        <!-- HEADER -->
+
+        <div class="history-header">
+
+            <div>
+
+                <h1>
+                    Test History
+                </h1>
+
+                <p id="historySummary">
+                    Your last 10 Exam Mode attempts.
+                </p>
+
+            </div>
+
+
+            <div class="history-actions">
+
+                <button
+                    id="historyReset"
+                    class="history-reset"
+                    type="button"
+                >
+                    Reset history
+                </button>
+
+
+                <button
+                    id="historyHome"
+                    class="history-home"
+                    type="button"
+                >
+                    ← Home
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- HISTORY LIST -->
+
+        <div
+            id="historyList"
+            class="history-list"
+        ></div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TEST HEADER
+========================================================= -->
+
+<header
+    id="top"
+    class="top"
+    hidden
+>
+
+
+    <!-- HOME -->
+
+    <button
+        id="homeBtn"
+        class="home-btn"
+        type="button"
+    >
+        ← Home
+    </button>
+
+
+    <!-- BRAND -->
+
+    <div class="brand">
+
+        <b>
+            IT
+        </b>
+
+
+        <span>
+
+            <strong>
+                Foundation Practice Simulator
+            </strong>
+
+            <small id="modeLabel">
+                Independent · Unofficial · Version 5
+            </small>
+
+        </span>
+
+    </div>
+
+
+    <!-- META -->
+
+    <div class="meta">
+
+        <span id="progress">
+            Question 1 of 40
+        </span>
+
+
+        <strong id="timer">
+            60:00
+        </strong>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =========================================================
+     EXAM / PRACTICE
+========================================================= -->
+
+<main
+    id="exam"
+    class="layout"
+    hidden
+>
+
+
+    <!-- =====================================================
+         QUESTION AREA
+    ====================================================== -->
+
+    <section>
+
+
+        <div class="line">
+
+
+            <span id="qnum">
+                Question 1
+            </span>
+
+
+            <button
+                id="mark"
+                type="button"
+            >
+                ☆ Mark for review
+            </button>
+
+
+        </div>
+
+
+
+        <!-- QUESTION CARD -->
+
+        <article class="card question-card">
+
+
+            <!-- SCENARIO -->
+
+            <div
+                id="scenario"
+                class="scenario"
+                hidden
+            ></div>
+
+
+            <!-- QUESTION -->
+
+            <h1 id="question"></h1>
+
+
+            <!-- OPTIONS -->
+
+            <div id="options"></div>
+
+
+        </article>
+
+
+
+        <!-- ACTION BUTTONS -->
+
+        <div class="actions">
+
+
+            <button
+                id="prev"
+                type="button"
+            >
+                ← Previous
+            </button>
+
+
+            <button
+                id="clear"
+                type="button"
+            >
+                Clear answer
+            </button>
+
+
+            <button
+                id="next"
+                class="primary"
+                type="button"
+            >
+                Next →
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         QUESTION NAVIGATOR
+    ====================================================== -->
+
+    <aside class="nav card">
+
+
+        <h2>
+            Question navigator
+        </h2>
+
+
+        <!-- LEGEND -->
+
+        <div class="legend">
+
+
+            <span class="legend-item">
+
+                <i class="legend-dot answered-dot"></i>
+
+                Answered
+
+            </span>
+
+
+            <span class="legend-item">
+
+                <i class="legend-dot marked-dot"></i>
+
+                Marked
+
+            </span>
+
+
+            <span class="legend-item">
+
+                <i class="legend-dot current-dot"></i>
+
+                Current
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- PRACTICE LEGEND -->
+
+        <div
+            id="practiceLegend"
+            class="practice-legend"
+            hidden
+        >
+
+
+            <span>
+
+                <i class="legend-dot correct-dot"></i>
+
+                Correct
+
+            </span>
+
+
+            <span>
+
+                <i class="legend-dot incorrect-dot"></i>
+
+                Incorrect
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- QUESTION GRID -->
+
+        <div
+            id="grid"
+            class="grid"
+        ></div>
+
+
+
+        <!-- SUMMARY -->
+
+        <div class="summary">
+
+
+            <span>
+
+                Answered
+
+                <b id="answered">
+                    0
+                </b>
+
+            </span>
+
+
+            <span>
+
+                Marked
+
+                <b id="marked">
+                    0
+                </b>
+
+            </span>
+
+
+            <span>
+
+                Remaining
+
+                <b id="remaining">
+                    40
+                </b>
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- FINISH -->
+
+        <button
+            id="finish"
+            class="finish"
+            type="button"
+        >
+            Finish test
+        </button>
+
+
+    </aside>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FINISH MODAL
+========================================================= -->
+
+<div
+    id="modal"
+    class="backdrop"
+    hidden
+>
+
+
+    <div class="modal card">
+
+
+        <h2>
+            Finish test?
+        </h2>
+
+
+        <p id="finishText">
+            You can finish the test even if some questions
+            are unanswered. Unanswered questions will count
+            as incorrect.
+        </p>
+
+
+        <div class="actions">
+
+
+            <button
+                id="cancel"
+                type="button"
+            >
+                Continue
+            </button>
+
+
+            <button
+                id="confirm"
+                class="primary"
+                type="button"
+            >
+                Finish &amp; score
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     RESULTS
+========================================================= -->
+
+<section
+    id="results"
+    class="results"
+    hidden
+>
+
+
+    <div class="result card">
+
+
+        <small>
+            TEST COMPLETE
+        </small>
+
+
+        <h1>
+            Your result
+        </h1>
+
+
+
+        <!-- SCORE RING -->
+
+        <div
+            id="ring"
+            class="ring"
+        >
+
+            <b id="pct">
+                0%
+            </b>
+
+
+            <span id="frac">
+                0 / 40
+            </span>
+
+
+        </div>
+
+
+
+        <h3 id="status"></h3>
+
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+
+            <span>
+
+                Correct
+
+                <b id="correct">
+                    0
+                </b>
+
+            </span>
+
+
+            <span>
+
+                Incorrect
+
+                <b id="incorrect">
+                    0
+                </b>
+
+            </span>
+
+
+            <span>
+
+                Unanswered
+
+                <b id="unanswered">
+                    0
+                </b>
+
+            </span>
+
+
+            <span>
+
+                Pass mark
+
+                <b>
+                    65%
+                </b>
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- RESULT ACTIONS -->
+
+        <div class="actions center">
+
+
+            <button
+                id="review"
+                type="button"
+            >
+                Review answers
+            </button>
+
+
+            <button
+                id="restart"
+                class="primary"
+                type="button"
+            >
+                Home
+            </button>
+
+
+        </div>
+
+
+
+        <p class="disclaimer">
+
+            Independent educational software.
+            Not affiliated with or endorsed by PeopleCert,
+            AXELOS, or the owners of ITIL intellectual property.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT ENTRY POINT
+========================================================= -->
+
+<script
+    type="module"
+    src="./app.js"
+></script>
+
+
+</body>
+</html>
