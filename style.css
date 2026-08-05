@@ -59,29 +59,29 @@ body {
 
 :root {
 
-    --bg: #f3f5f8;
+    --bg: #dfe6ef;
 
     --white: #ffffff;
 
-    --border: #d9dee7;
+    --border: #cbd5e1;
 
     --text: #172033;
 
-    --muted: #687386;
+    --muted: #64748b;
 
-    --blue: #2457d6;
+    --blue: #315dcc;
 
-    --blue2: #eaf0ff;
+    --blue2: #eef3ff;
 
-    --green: #13795b;
+    --green: #16805f;
 
-    --greenbg: #e9f7f1;
+    --greenbg: #eaf8f2;
 
-    --red: #b42318;
+    --red: #c0392b;
 
-    --redbg: #fff0ee;
+    --redbg: #fff1ef;
 
-    --gold: #9a6700;
+    --gold: #a06b00;
 
 }
 
