@@ -1,154 +1,154 @@
-/* ============================================================
-   NAVIGATION
-   ============================================================ */
+    /* ============================================================
+    NAVIGATION
+    ============================================================ */
 
-import {
-    state,
-    isPractice
-} from "./state.js";
+    import {
+        state,
+        isPractice
+    } from "./state.js";
 
-import {
-    render,
-    $
-} from "./ui.js";
+    import {
+        render,
+        $
+    } from "./ui.js";
 
-import {
-    openFinishModal
-} from "./exam.js";
-
-
-/* ============================================================
-   NEXT
-   ============================================================ */
-
-export function nextQuestion() {
-
-    /*
-        IMPORTANT:
-
-        NEXT still requires an answer.
-
-        This is different from FINISH.
-    */
-
-    if (
-        state.answers[state.current] === null
-    ) {
-
-        alert(
-            "Please select an answer before continuing."
-        );
+    import {
+        openFinishModal
+    } from "./exam.js";
 
 
-        return;
+    /* ============================================================
+    NEXT
+    ============================================================ */
+
+    export function nextQuestion() {
+
+        /*
+            IMPORTANT:
+
+            NEXT still requires an answer.
+
+            This is different from FINISH.
+        */
+
+        if (
+            state.answers[state.current] === null
+        ) {
+
+            alert(
+                "Please select an answer before continuing."
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+            Next question.
+        */
+
+        if (
+            state.current <
+            state.sessionQuestions.length - 1
+        ) {
+
+            state.current++;
+
+            render();
+
+            return;
+
+        }
+
+
+        /*
+            Last question.
+        */
+
+        openFinishModal();
 
     }
 
 
-    /*
-        Next question.
-    */
+    /* ============================================================
+    PREVIOUS
+    ============================================================ */
 
-    if (
-        state.current <
-        state.sessionQuestions.length - 1
-    ) {
+    export function previousQuestion() {
 
-        state.current++;
+        if (
+            state.current > 0
+        ) {
+
+            state.current--;
+
+            render();
+
+        }
+
+    }
+
+
+    /* ============================================================
+    CLEAR ANSWER
+    ============================================================ */
+
+    export function clearAnswer() {
+
+        /*
+            Review mode = locked.
+        */
+
+        if (state.review) {
+
+            return;
+
+        }
+
+
+        /*
+            Practice answered question
+            cannot be cleared.
+        */
+
+        if (
+            isPractice() &&
+            state.practiceResults[state.current] !== null
+        ) {
+
+            return;
+
+        }
+
+
+        state.answers[state.current] =
+            null;
+
 
         render();
 
-        return;
-
     }
 
 
-    /*
-        Last question.
-    */
+    /* ============================================================
+    MARK FOR REVIEW
+    ============================================================ */
 
-    openFinishModal();
+    export function toggleMark() {
 
-}
+        if (state.review) {
+
+            return;
+
+        }
 
 
-/* ============================================================
-   PREVIOUS
-   ============================================================ */
+        state.marked[state.current] =
+            !state.marked[state.current];
 
-export function previousQuestion() {
-
-    if (
-        state.current > 0
-    ) {
-
-        state.current--;
 
         render();
 
     }
-
-}
-
-
-/* ============================================================
-   CLEAR ANSWER
-   ============================================================ */
-
-export function clearAnswer() {
-
-    /*
-        Review mode = locked.
-    */
-
-    if (state.review) {
-
-        return;
-
-    }
-
-
-    /*
-        Practice answered question
-        cannot be cleared.
-    */
-
-    if (
-        isPractice() &&
-        state.practiceResults[state.current] !== null
-    ) {
-
-        return;
-
-    }
-
-
-    state.answers[state.current] =
-        null;
-
-
-    render();
-
-}
-
-
-/* ============================================================
-   MARK FOR REVIEW
-   ============================================================ */
-
-export function toggleMark() {
-
-    if (state.review) {
-
-        return;
-
-    }
-
-
-    state.marked[state.current] =
-        !state.marked[state.current];
-
-
-    render();
-
-}

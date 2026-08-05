@@ -1,3 +1,4 @@
+
 /* ============================================================
    UI
    ============================================================ */
@@ -60,6 +61,10 @@ export function render() {
 
     clearFeedback();
 
+
+    /* ========================================================
+       QUESTION NUMBER
+       ======================================================== */
 
     $("qnum").textContent =
         `Question ${state.current + 1}`;
@@ -146,7 +151,18 @@ export function render() {
     }
 
 
+    /* ========================================================
+       NAVIGATOR
+       ======================================================== */
+
     renderNavigator();
+
+
+    /* ========================================================
+       SUMMARY
+       ======================================================== */
+
+    summary();
 
 }
 
@@ -226,8 +242,8 @@ export function renderOptions() {
 
 
                 if (
-                    index ===
-                    state.answers[state.current] &&
+                    state.answers[state.current] !== null &&
+                    index === state.answers[state.current] &&
                     index !== question.answer
                 ) {
 
@@ -266,8 +282,7 @@ export function renderOptions() {
 
                 if (
                     state.answers[state.current] !== null &&
-                    index ===
-                    state.answers[state.current] &&
+                    index === state.answers[state.current] &&
                     index !== question.answer
                 ) {
 
@@ -280,18 +295,26 @@ export function renderOptions() {
             }
 
 
+            /* =================================================
+               BUTTON CONTENT
+               ================================================= */
+
             button.innerHTML = `
 
                 <span class="letter">
                     ${String.fromCharCode(65 + index)}
                 </span>
 
-                <span>
+                <span class="option-text">
                     ${text}
                 </span>
 
             `;
 
+
+            /* =================================================
+               ANSWER HANDLER
+               ================================================= */
 
             button.onclick = () => {
 
@@ -352,15 +375,19 @@ export function renderNavigator() {
         $("grid");
 
 
+    if (!grid) {
+
+        return;
+
+    }
+
+
     grid.innerHTML = "";
 
 
     /*
-        IMPORTANT:
-
-        Use sessionQuestions, NOT original questions.
-
-        Because sessionQuestions are randomized.
+        Use sessionQuestions because the questions
+        may have been randomized for this session.
     */
 
     state.sessionQuestions.forEach(
@@ -423,6 +450,10 @@ export function renderNavigator() {
                 }
 
 
+                /*
+                    Answered but not yet checked.
+                */
+
                 if (
                     state.answers[index] !== null &&
                     state.practiceResults[index] === null
@@ -443,6 +474,11 @@ export function renderNavigator() {
 
             if (isExam()) {
 
+                /*
+                    During the exam, answered questions
+                    are shown as answered.
+                */
+
                 if (!state.review) {
 
                     if (
@@ -457,6 +493,10 @@ export function renderNavigator() {
 
                 }
 
+
+                /*
+                    After exam completion / review mode.
+                */
 
                 if (state.review) {
 
@@ -514,9 +554,17 @@ export function renderNavigator() {
             }
 
 
+            /* =================================================
+               NUMBER
+               ================================================= */
+
             button.textContent =
                 index + 1;
 
+
+            /* =================================================
+               NAVIGATION
+               ================================================= */
 
             button.onclick = () => {
 
@@ -555,23 +603,63 @@ export function summary() {
         ).length;
 
 
-    const unanswered =
+    const marked =
+        state.marked.filter(
+            value =>
+                value === true
+        ).length;
+
+
+    const remaining =
         total - answered;
 
 
-    const element =
-        $("summary");
+    /* ========================================================
+       ANSWERED
+       ======================================================== */
+
+    const answeredElement =
+        $("answered");
 
 
-    if (!element) {
+    if (answeredElement) {
 
-        return;
+        answeredElement.textContent =
+            answered;
 
     }
 
 
-    element.textContent =
-        `${answered} answered · ${unanswered} unanswered`;
+    /* ========================================================
+       MARKED
+       ======================================================== */
+
+    const markedElement =
+        $("marked");
+
+
+    if (markedElement) {
+
+        markedElement.textContent =
+            marked;
+
+    }
+
+
+    /* ========================================================
+       REMAINING
+       ======================================================== */
+
+    const remainingElement =
+        $("remaining");
+
+
+    if (remainingElement) {
+
+        remainingElement.textContent =
+            remaining;
+
+    }
 
 }
 

@@ -10,6 +10,7 @@ import {
 import {
     render,
     clearFeedback,
+    summary,
     $
 } from "./ui.js";
 
@@ -67,7 +68,24 @@ export function handleAnswer(index) {
             state.sessionQuestions[state.current].answer;
 
 
+        /*
+            Re-render everything:
+            - answer state
+            - navigator
+            - feedback
+        */
+
         render();
+
+
+        /*
+            Update:
+            - Answered
+            - Unanswered
+        */
+
+        summary();
+
 
         return;
 
@@ -82,7 +100,18 @@ export function handleAnswer(index) {
         index;
 
 
+    /*
+        Re-render navigator immediately.
+    */
+
     render();
+
+
+    /*
+        Update Answered / Unanswered immediately.
+    */
+
+    summary();
 
 }
 
