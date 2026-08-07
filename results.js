@@ -1,28 +1,36 @@
 /* ============================================================
-   RESULTS
-   ============================================================ */
+RESULTS
+============================================================ */
 
 import {
-    state
+state
 } from "./state.js";
 
 import {
-    saveTestResult
+saveTestResult
 } from "./history.js";
 
 import {
-    $
+$
 } from "./ui.js";
 
 
 /* ============================================================
-   CALCULATE RESULT
-   ============================================================ */
+PASS MARK
+============================================================ */
+
+const PASSING_SCORE = 65;
+
+
+/* ============================================================
+CALCULATE RESULT
+============================================================ */
 
 export function calculateResult() {
 
     let correct = 0;
     let unanswered = 0;
+
 
     state.sessionQuestions.forEach(
         (question, index) => {
@@ -30,11 +38,11 @@ export function calculateResult() {
             const answer =
                 state.answers[index];
 
-            /*
-                No answer.
-            */
 
-            if (answer === null || answer === undefined) {
+            if (
+                answer === null ||
+                answer === undefined
+            ) {
 
                 unanswered++;
 
@@ -42,9 +50,6 @@ export function calculateResult() {
 
             }
 
-            /*
-                Correct answer.
-            */
 
             if (
                 answer === question.answer
@@ -62,24 +67,9 @@ export function calculateResult() {
         state.sessionQuestions.length;
 
 
-    /*
-        Everything that is not correct
-        is incorrect.
-
-        This includes unanswered questions.
-    */
-
     const incorrect =
-        total -
-        correct;
+        total - correct;
 
-
-    /*
-        Keep one decimal place.
-
-        Example:
-        1 / 40 = 2.5%
-    */
 
     const score =
         total > 0
@@ -103,8 +93,8 @@ export function calculateResult() {
 
 
 /* ============================================================
-   DISPLAY RESULTS
-   ============================================================ */
+DISPLAY RESULTS
+============================================================ */
 
 export function displayResults() {
 
@@ -112,19 +102,14 @@ export function displayResults() {
         calculateResult();
 
 
-    const PASSING_SCORE =
-        65;
-
-
     const passed =
         result.score >= PASSING_SCORE;
 
 
-    /*
-        ========================================================
-        SCORE
-        ========================================================
-    */
+
+    /* ========================================================
+       SCORE
+       ======================================================== */
 
     const percentageElement =
         $("pct");
@@ -138,11 +123,10 @@ export function displayResults() {
     }
 
 
-    /*
-        ========================================================
-        FRACTION
-        ========================================================
-    */
+
+    /* ========================================================
+       FRACTION
+       ======================================================== */
 
     const fractionElement =
         $("frac");
@@ -156,11 +140,10 @@ export function displayResults() {
     }
 
 
-    /*
-        ========================================================
-        CORRECT
-        ========================================================
-    */
+
+    /* ========================================================
+       CORRECT
+       ======================================================== */
 
     const correctElement =
         $("correct");
@@ -174,11 +157,10 @@ export function displayResults() {
     }
 
 
-    /*
-        ========================================================
-        INCORRECT
-        ========================================================
-    */
+
+    /* ========================================================
+       INCORRECT
+       ======================================================== */
 
     const incorrectElement =
         $("incorrect");
@@ -192,11 +174,10 @@ export function displayResults() {
     }
 
 
-    /*
-        ========================================================
-        UNANSWERED
-        ========================================================
-    */
+
+    /* ========================================================
+       UNANSWERED
+       ======================================================== */
 
     const unansweredElement =
         $("unanswered");
@@ -210,11 +191,27 @@ export function displayResults() {
     }
 
 
-    /*
-        ========================================================
-        STATUS
-        ========================================================
-    */
+
+    /* ========================================================
+       PASS MARK DISPLAY
+       ======================================================== */
+
+    const passMarkElement =
+        $("passMark");
+
+
+    if (passMarkElement) {
+
+        passMarkElement.textContent =
+            `${PASSING_SCORE}%`;
+
+    }
+
+
+
+    /* ========================================================
+       STATUS
+       ======================================================== */
 
     const statusElement =
         $("status");
@@ -230,11 +227,10 @@ export function displayResults() {
     }
 
 
-    /*
-        ========================================================
-        SCORE RING
-        ========================================================
-    */
+
+    /* ========================================================
+       SCORE RING
+       ======================================================== */
 
     const ring =
         $("ring");
@@ -246,6 +242,7 @@ export function displayResults() {
             "passed",
             passed
         );
+
 
         ring.classList.toggle(
             "failed",
@@ -267,8 +264,8 @@ export function displayResults() {
 
 
 /* ============================================================
-   SAVE EXAM RESULT
-   ============================================================ */
+SAVE EXAM RESULT
+============================================================ */
 
 export function saveExamResult() {
 
@@ -281,14 +278,18 @@ export function saveExamResult() {
         date:
             new Date().toLocaleString(),
 
+
         score:
             result.score,
+
 
         correct:
             result.correct,
 
+
         total:
             result.total,
+
 
         passed:
             result.passed

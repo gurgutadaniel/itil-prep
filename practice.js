@@ -8,10 +8,10 @@ import {
 } from "./state.js";
 
 import {
-    render,
-    clearFeedback,
-    summary,
-    $
+render,
+clearFeedback,
+summary,
+$
 } from "./ui.js";
 
 
@@ -83,11 +83,13 @@ export function handleAnswer(index) {
             - Answered
             - Unanswered
         */
+render();
 
-        summary();
+summary();
 
+checkPracticePass();
 
-        return;
+return;
 
     }
 
@@ -293,5 +295,96 @@ export function showExamReviewFeedback() {
     $("options").after(
         note
     );
+
+}
+
+/* ============================================================
+   PRACTICE PASS MESSAGE
+============================================================ */
+
+function showPracticePassedToast(score) {
+
+
+    const old =
+        $("practiceToast");
+
+
+    if (old) {
+        old.remove();
+    }
+
+
+    const toast =
+        document.createElement("div");
+
+
+    toast.id =
+        "practiceToast";
+
+
+    toast.className =
+        "practice-toast";
+
+
+    toast.innerHTML = `
+
+        <strong>
+            🎉 Congratulations!
+        </strong>
+
+        <span>
+            Practice pass mark reached:
+            ${score}%
+        </span>
+
+    `;
+
+
+    document.body.appendChild(
+        toast
+    );
+
+
+    setTimeout(
+        () => {
+
+            toast.classList.add(
+                "hide"
+            );
+
+
+            setTimeout(
+                () => toast.remove(),
+                300
+            );
+
+        },
+        4000
+    );
+
+
+
+    document.body.appendChild(
+        toast
+    );
+
+
+    setTimeout(
+        () => {
+
+            toast.classList.add(
+                "hide"
+            );
+
+
+            setTimeout(
+                () => toast.remove(),
+                300
+            );
+
+        },
+        4000
+    );
+
 
 }

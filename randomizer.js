@@ -47,19 +47,14 @@ export function shuffle(array) {
    CREATE RANDOMIZED QUESTIONS
    ============================================================ */
 
-export function createRandomizedQuestions(questions) {
-
-    /*
-        Shuffle question order.
-    */
+export function createRandomizedQuestions(
+    questions,
+    limit = questions.length
+) {
 
     const shuffledQuestions =
-        shuffle(questions);
-
-
-    /*
-        Shuffle answers inside every question.
-    */
+        shuffle(questions)
+            .slice(0, limit);
 
     return shuffledQuestions.map(
         question => {

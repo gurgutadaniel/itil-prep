@@ -9,8 +9,8 @@ import {
 } from "./state.js";
 
 import {
-    questions
-} from "./questions.js";
+    questions as examQuestions
+} from "./questions_exam.js";
 
 import {
     createRandomizedQuestions
@@ -49,7 +49,9 @@ import {
     clearHistory
 } from "./history.js";
 
-
+import {
+    questions as learningQuestions
+} from "./questions_learning.js";
 /* ============================================================
    START MODE
    ============================================================ */
@@ -60,14 +62,58 @@ function startMode(mode) {
         mode;
 
 
-    /*
-        Create a NEW randomized session.
-    */
+/*
+Select question source depending on mode.
+*/
 
-    state.sessionQuestions =
-        createRandomizedQuestions(
-            questions
-        );
+let selectedQuestions;
+
+
+if (
+    mode === "exam" ||
+    mode === "practice"
+) {
+
+    selectedQuestions =
+        examQuestions;
+
+}
+else if (
+    mode === "learning"
+) {
+
+    selectedQuestions =
+        learningQuestions;
+
+}
+
+/*
+Create a NEW randomized session.
+*/
+
+let questionLimit;
+
+
+if (
+    mode === "exam" ||
+    mode === "practice"
+) {
+
+    questionLimit = 40;
+
+} else {
+
+    questionLimit =
+        selectedQuestions.length;
+
+}
+
+
+state.sessionQuestions =
+createRandomizedQuestions(
+    selectedQuestions,
+    questionLimit
+);
 
 
     /*
@@ -115,28 +161,37 @@ function startMode(mode) {
         Mode label.
     */
 
-    if (
-        mode === "practice"
-    ) {
+        
+   if (mode === "learning") {
 
-        $("modeLabel").textContent =
-            "Practice Mode · Immediate feedback";
-
-
-        $("practiceLegend").hidden =
-            false;
-
-    } else {
-
-        $("modeLabel").textContent =
-            `Exam Mode · ${state.sessionQuestions.length} questions · 60 minutes`;
+    $("modeLabel").textContent =
+        "Learning Mode · Beginner · Concept Learning";
 
 
-        $("practiceLegend").hidden =
-            true;
+    $("practiceLegend").hidden =
+        false;
 
-    }
 
+} else if (mode === "practice") {
+
+    $("modeLabel").textContent =
+        "Practice Mode · Intermediate · Exam Preparation";
+
+
+    $("practiceLegend").hidden =
+        false;
+
+
+} else if (mode === "exam") {
+
+    $("modeLabel").textContent =
+        "Exam Mode · Advanced · Full Exam Simulation";
+
+
+    $("practiceLegend").hidden =
+        true;
+
+}
 
     /*
         Timer.
@@ -403,12 +458,11 @@ function goHome() {
 
 
 /*
-    Practice Mode
+Practice Mode
 */
 
 const practiceButton =
-    $("practiceMode");
-
+$("practiceMode");
 
 if (practiceButton) {
 
@@ -424,12 +478,32 @@ if (practiceButton) {
 
 
 /*
-    Exam Mode
+Learning Mode
+*/
+
+const learningButton =
+$("learningMode");
+
+
+if (learningButton) {
+
+    learningButton.onclick = () => {
+
+        startMode(
+            "learning"
+        );
+
+    };
+
+}
+
+
+/*
+Exam Mode
 */
 
 const examButton =
-    $("examMode");
-
+$("examMode");
 
 if (examButton) {
 
@@ -442,7 +516,6 @@ if (examButton) {
     };
 
 }
-
 
 /*
     History

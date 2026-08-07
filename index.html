@@ -75,18 +75,56 @@
 
 
             <div class="mode-options">
+<!-- =================================================
+     LEARNING MODE
+================================================== -->
+
+<button
+    id="learningMode"
+    class="mode-card learning-card"
+    type="button"
+>
+
+    <div class="mode-icon learning-icon">
+        📖
+    </div>
 
 
+    <div class="mode-text">
+
+        <h2>
+            Learning Mode
+        </h2>
+
+
+        <p>
+<p>
+    Start with ITIL fundamentals.
+    Learn key concepts through beginner-friendly questions
+    with explanations after every answer.
+</p>
+
+
+<span class="mode-feature">
+    Beginner · Learn Concepts
+</span>
+    </div>
+
+
+    <span class="mode-arrow">
+        →
+    </span>
+
+</button>
                 <!-- =================================================
                      PRACTICE MODE
                 ================================================== -->
 
-                <button
-                    id="practiceMode"
-                    class="mode-card"
-                    type="button"
-                >
-
+<button
+    id="practiceMode"
+    class="mode-card practice-card"
+    type="button"
+>
                     <div class="mode-icon practice-icon">
                         ✓
                     </div>
@@ -98,14 +136,14 @@
                             Practice Mode
                         </h2>
 
-                        <p>
-                            Get immediate feedback after every answer.
-                            See the correct answer and explanation.
-                        </p>
+<p>
+    Practice real exam questions.
+    Get immediate feedback and explanations after every answer.
+</p>
 
-                        <span class="mode-feature">
-                            Immediate feedback
-                        </span>
+<span class="mode-feature">
+    Exam practice · Immediate feedback 
+</span>
 
                     </div>
 
@@ -120,12 +158,11 @@
                 <!-- =================================================
                      EXAM MODE
                 ================================================== -->
-
-                <button
-                    id="examMode"
-                    class="mode-card"
-                    type="button"
-                >
+<button
+    id="examMode"
+    class="mode-card exam-card"
+    type="button"
+>
 
                     <div class="mode-icon exam-icon">
                         ⏱
@@ -137,15 +174,14 @@
                         <h2>
                             Exam Mode
                         </h2>
+<p>
+    Take the full exam simulation.
+    No feedback until the test is completed.
+</p>
 
-                        <p>
-                            Simulate the real exam experience.
-                            No feedback until you finish.
-                        </p>
-
-                        <span class="mode-feature">
-                            40 questions · 60 minutes
-                        </span>
+<span class="mode-feature">
+    Advanced · Exam simulation · 40 questions · 60 minutes
+</span>
 
                     </div>
 
@@ -608,9 +644,9 @@
 
             <span>
 
-                Marked
+                Correct
 
-                <b id="marked">
+                <b id="correctCount">
                     0
                 </b>
 
@@ -716,8 +752,16 @@
     hidden
 >
 
+    <p class="disclaimer">
 
-    <div class="result card">
+        Independent educational software.
+        Not affiliated with or endorsed by PeopleCert,
+        AXELOS, or the owners of ITIL intellectual property.
+
+    </p>
+
+
+</div>
 
 
         <small>

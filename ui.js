@@ -33,7 +33,7 @@ export function $(id) {
 export function clearFeedback() {
 
     document
-        .querySelectorAll(".review-note")
+        .querySelectorAll(".review-note, .practice-toast")
         .forEach(
             element =>
                 element.remove()
@@ -614,9 +614,16 @@ export function summary() {
         total - answered;
 
 
+    const correct =
+        state.practiceResults.filter(
+            result =>
+                result === true
+        ).length;
+
+
     /* ========================================================
        ANSWERED
-       ======================================================== */
+    ======================================================== */
 
     const answeredElement =
         $("answered");
@@ -632,7 +639,7 @@ export function summary() {
 
     /* ========================================================
        MARKED
-       ======================================================== */
+    ======================================================== */
 
     const markedElement =
         $("marked");
@@ -648,7 +655,7 @@ export function summary() {
 
     /* ========================================================
        REMAINING
-       ======================================================== */
+    ======================================================== */
 
     const remainingElement =
         $("remaining");
@@ -661,9 +668,32 @@ export function summary() {
 
     }
 
+
+    /* ========================================================
+       CORRECT
+    ======================================================== */
+
+    const correctElement =
+        $("correctCount");
+
+
+    if (correctElement) {
+
+        if (isExam()) {
+
+            correctElement.textContent =
+                "-";
+
+        } else {
+
+            correctElement.textContent =
+                correct;
+
+        }
+
+    }
+
 }
-
-
 /* ============================================================
    SHOW APPLICATION
    ============================================================ */
@@ -718,4 +748,6 @@ export function showResultsScreen() {
 
     $("results").hidden = false;
 
+    
 }
+

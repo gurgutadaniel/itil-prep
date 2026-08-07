@@ -59,7 +59,10 @@ export function resetState(questionsLength) {
 
 export function isPractice() {
 
-    return state.mode === "practice";
+    return (
+        state.mode === "practice" ||
+        state.mode === "learning"
+    );
 
 }
 
