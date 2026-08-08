@@ -1,4 +1,10 @@
-export const questions = [
+// 50 hard-mode ITIL 5 Foundation practice questions
+// Format matches the example provided by the user.
+// These are original scenario-based questions written to test precise
+// understanding of ITIL 5 (and retained ITIL 4) concepts — not reproductions
+// of any official/copyrighted exam bank.
+
+const questions = [
   {
     "q": "A global organization introduces an AI-enabled digital service. The technical team measures success only through system availability and response time. However, business stakeholders complain that the service does not support their desired outcomes. According to ITIL 5, what should the organization focus on first?",
     "options": [
@@ -11,1040 +17,575 @@ export const questions = [
     "explanation": "ITIL emphasizes value co-creation. A service is successful only when it enables desired outcomes for stakeholders, not only when technical metrics are good."
   },
   {
-    "q": "A service provider discovers that a recently automated workflow has reduced processing time but increased customer frustration because exceptions are handled poorly. Which guiding principle should primarily influence the next action?",
+    "q": "A digital product vendor supplies a component that a service provider embeds into a customer-facing product. The vendor has no direct relationship with the end users and does not participate in defining outcomes. Which statement correctly classifies this arrangement?",
     "options": [
-      "Optimize and automate",
-      "Start where you are",
-      "Focus on value",
-      "Keep it simple and practical"
+      "This is a collaborative (partnership) relationship, because the vendor's component is essential to the product",
+      "This is a basic service relationship between the service provider and the vendor, separate from the cooperative relationship between the provider and the consumer",
+      "The vendor is automatically a sponsor, since it funds the development of the component",
+      "No service relationship exists because the vendor does not interact with users directly"
+    ],
+    "answer": 1,
+    "explanation": "A digital product vendor supplying a component without co-defining outcomes is a basic relationship (transactional supply), distinct from whatever relationship (basic/cooperative/collaborative) exists between the provider and the actual consumer."
+  },
+  {
+    "q": "During a retrospective, a team notices that a change was approved quickly by an emergency change authority but caused a major outage. Some team members argue the guiding principle 'progress iteratively with feedback' was violated; others argue 'keep it simple and practical' was the one broken. What is the most defensible assessment?",
+    "options": [
+      "Neither principle applies to emergency changes, since emergency changes are exempt from guiding principles",
+      "The principles are not mutually exclusive; the failure likely reflects insufficient feedback loops before deployment, which is squarely 'progress iteratively with feedback', while simplicity is a separate, not necessarily violated, concern",
+      "Only 'collaborate and promote visibility' applies, because the emergency CAB should have included more stakeholders",
+      "The scenario shows a governance failure, not a guiding-principle failure, so no principle applies"
+    ],
+    "answer": 1,
+    "explanation": "Guiding principles can overlap in relevance but each has a distinct core idea. Deploying without adequate validation loops is most precisely a violation of iterating with feedback; simplicity is not evidenced as the cause unless the change itself was over-engineered, which isn't stated."
+  },
+  {
+    "q": "A service level agreement guarantees 99.95% uptime and is consistently met. Users still report that the service 'doesn't work for them' because it lacks a feature required for their workflow. Which pairing correctly diagnoses this?",
+    "options": [
+      "Warranty is failing, utility is fine",
+      "Utility is failing, warranty is fine",
+      "Both utility and warranty are failing simultaneously",
+      "This is a value co-creation issue unrelated to utility or warranty"
+    ],
+    "answer": 1,
+    "explanation": "Utility = fitness for purpose (does it do what's needed). Warranty = fitness for use (performance guarantees like uptime). Missing functionality is a utility gap; the uptime SLA being met means warranty holds."
+  },
+  {
+    "q": "An organization's continual improvement register contains 40 open items. Leadership wants to know which ONE step of the continual improvement model they are systematically skipping, given that initiatives are frequently started but rarely evaluated for whether they achieved the intended outcome.",
+    "options": [
+      "Where do we want to be?",
+      "How do we get there?",
+      "Did we get there?",
+      "What is the vision?"
     ],
     "answer": 2,
-    "explanation": "Automation should not be optimized in isolation. The organization must evaluate whether the change improves stakeholder value."
+    "explanation": "'Did we get there?' is the step that checks whether the target state was achieved and metrics were met — skipping it explains why initiatives close without outcome validation."
   },
   {
-    "q": "A company wants to improve its service management capability. Different departments propose completely new processes and tools without analyzing the existing environment. Which ITIL guiding principle should prevent this approach?",
+    "q": "A service desk agent resolves a recurring issue by applying a workaround documented in the knowledge base, without identifying the underlying cause. Which management practice's core purpose has NOT been fulfilled?",
     "options": [
-      "Think and work holistically",
-      "Start where you are",
-      "Progress iteratively with feedback",
-      "Collaborate and promote visibility"
+      "Incident management",
+      "Problem management",
+      "Service request management",
+      "Service configuration management"
     ],
     "answer": 1,
-    "explanation": "Start where you are means assess the current state before deciding what changes are actually required."
+    "explanation": "Incident management successfully restored service (its purpose). Problem management, whose purpose includes identifying and managing causes of incidents, has not been engaged since the root cause is unaddressed."
   },
   {
-    "q": "A service owner improves incident resolution speed by creating multiple approval steps before restoring services. The average resolution time increases. Which ITIL concept was most likely ignored?",
+    "q": "A company adopts ITIL 5's expanded emphasis on sustainability. A project team proposes decommissioning legacy servers to cut carbon footprint, but this would remove a system three regional offices still depend on for compliance reporting. What does ITIL 5 guiding principles suggest should happen?",
     "options": [
-      "Optimization requires balancing effectiveness and efficiency",
-      "Governance should replace operational management",
-      "Automation should always reduce human involvement",
-      "Processes should be designed around technology limitations"
-    ],
-    "answer": 0,
-    "explanation": "ITIL encourages optimization of workflows, avoiding unnecessary complexity that reduces value."
-  },
-  {
-    "q": "A company creates a new digital product but the development team works separately from operations, security, and customer support. Which guiding principle should be applied?",
-    "options": [
-      "Think and work holistically",
-      "Keep it simple and practical",
-      "Optimize and automate",
-      "Start where you are"
-    ],
-    "answer": 0,
-    "explanation": "Services and products should be managed as interconnected systems involving multiple stakeholders and capabilities."
-  },
-  {
-    "q": "A service provider wants to introduce a major improvement initiative. Instead of implementing everything at once, the team delivers smaller improvements and collects feedback after each stage. Which principle is demonstrated?",
-    "options": [
-      "Focus on value",
-      "Progress iteratively with feedback",
-      "Collaborate and promote visibility",
-      "Optimize and automate"
+      "Proceed immediately, since sustainability outranks all other guiding principles",
+      "Balance sustainability goals against 'think and work holistically' and 'optimize and automate' considerations before acting, since guiding principles must be applied together, not in isolation",
+      "Cancel the sustainability initiative entirely because compliance reporting cannot ever be disrupted",
+      "Delegate the decision solely to the sustainability officer, bypassing the four dimensions"
     ],
     "answer": 1,
-    "explanation": "Iterative progress with feedback reduces risk and allows continuous adjustment."
+    "explanation": "No single guiding principle overrides the others; ITIL explicitly states principles should be applied together and considerations weighed holistically across dependent systems."
   },
   {
-    "q": "A manager asks why a service improvement initiative failed despite having enough funding and technology. Investigation shows that users and business representatives were not involved. Which principle was neglected?",
+    "q": "In the ITIL Value Chain, a request from a customer triggers 'Engage', which passes information to 'Design & transition' to build a new capability, which then requires input from external suppliers via 'Obtain/build', before 'Deliver & support' fulfills the request. Which statement about value chain activities is correct?",
     "options": [
-      "Collaborate and promote visibility",
-      "Keep it simple and practical",
-      "Start where you are",
-      "Optimize and automate"
-    ],
-    "answer": 0,
-    "explanation": "Successful improvement requires collaboration and transparency with relevant stakeholders."
-  },
-  {
-    "q": "A service management team creates a highly detailed process containing hundreds of mandatory steps. Employees avoid using it because it is too complicated. Which ITIL guidance applies?",
-    "options": [
-      "Keep it simple and practical",
-      "Think and work holistically",
-      "Focus on value",
-      "Start where you are"
-    ],
-    "answer": 0,
-    "explanation": "ITIL recommends avoiding unnecessary complexity and focusing on what creates value."
-  },
-  {
-    "q": "A company measures continual improvement only by counting how many changes were completed. Which improvement should be considered?",
-    "options": [
-      "Measure only technical output because it is objective",
-      "Evaluate whether improvements created measurable value",
-      "Increase the number of completed changes",
-      "Remove stakeholder feedback from measurement"
+      "Value chain activities must always execute in the fixed sequence Engage → Design & transition → Obtain/build → Deliver & support",
+      "Value chain activities are combined in different ways to form value streams, and can be entered/exited in various orders depending on the demand",
+      "'Obtain/build' can only be triggered by 'Plan', never by 'Design & transition'",
+      "'Deliver & support' cannot occur unless 'Improve' has run first"
     ],
     "answer": 1,
-    "explanation": "Improvement is not about activity volume; it is about achieving better outcomes and value."
+    "explanation": "The six value chain activities are not a rigid pipeline; organizations combine them flexibly into value streams based on the specific demand and scenario."
   },
   {
-    "q": "A service provider wants to understand whether a service creates value. Which perspective is most aligned with ITIL?",
+    "q": "A sponsor authorizes budget for a new service but never uses it. A separate group of employees uses the service daily but has no budget authority. According to ITIL, who defines the requirements the service must meet to be considered successful?",
     "options": [
-      "Only the provider's internal efficiency",
-      "Only infrastructure performance",
-      "The combined perception and outcomes of stakeholders",
-      "Only compliance with documented procedures"
+      "Only the sponsor, since budget authority equals requirement authority",
+      "Only the users, since they interact with the service directly",
+      "Both roles typically contribute — sponsor articulates outcomes/value justifying investment, while users' experience determines whether utility/warranty are actually delivered",
+      "Neither; only the customer role can define requirements"
     ],
     "answer": 2,
-    "explanation": "Value is co-created through interactions between providers and consumers."
+    "explanation": "Sponsor, customer, and user are distinguishable roles that can be held by different people; overall success depends on satisfying the outcomes the sponsor is paying for AND the practical experience of users, not one alone."
   },
   {
-    "q": "An organization introduces a new governance model. Managers confuse governance with daily operational activities. What is the correct distinction?",
+    "q": "A change is classified as 'standard' because it follows a pre-authorized, low-risk, well-documented procedure. A junior analyst insists it should go through the full change authority approval because 'all changes carry risk.' What is the flaw in the analyst's reasoning?",
     "options": [
-      "Governance evaluates, directs, and monitors while management performs operational activities",
-      "Governance replaces all service management practices",
-      "Management defines organizational strategy while governance executes tasks",
-      "Governance is only related to financial approval"
-    ],
-    "answer": 0,
-    "explanation": "Governance ensures direction and oversight, while management handles execution and operations."
-  },
-  {
-    "q": "A service team wants to automate every possible task before understanding user needs. Which ITIL concern applies?",
-    "options": [
-      "Automation should be driven by value, not technology availability",
-      "Automation should replace all human decisions",
-      "Automation always improves service quality",
-      "Automation eliminates the need for continual improvement"
-    ],
-    "answer": 0,
-    "explanation": "Optimize and automate means improve first, then automate where appropriate."
-  },
-  {
-    "q": "A service value chain activity receives an input and transforms it into an output that creates value. What does this describe?",
-    "options": [
-      "A practice",
-      "A value chain activity",
-      "A governance authority",
-      "A service level agreement"
+      "Standard changes are not really changes at all, so no reasoning about risk applies",
+      "Standard changes are pre-authorized precisely because their risk is well understood and low, so re-approving them individually adds no value and contradicts the purpose of the standard-change category",
+      "The analyst is correct; ITIL 5 requires all changes to go through a change authority regardless of classification",
+      "Standard changes only apply to emergency scenarios"
     ],
     "answer": 1,
-    "explanation": "Value chain activities transform inputs into outputs that help create value."
+    "explanation": "Change enablement categorizes changes (standard/normal/emergency) precisely so routine, low-risk changes don't require repeated individual authorization — the risk assessment was already done once at the procedure level."
   },
   {
-    "q": "A company has excellent individual practices but poor coordination between teams. Which ITIL concept addresses this problem?",
+    "q": "An organization measures its four dimensions of service management and finds: Organizations & People = strong, Information & Technology = strong, Value Streams & Processes = weak, Partners & Suppliers = strong. A consultant claims the weak dimension can be ignored 'since three out of four are healthy.' What is wrong with this claim?",
     "options": [
-      "Think and work holistically",
-      "Focus only on individual practices",
-      "Increase documentation volume",
-      "Centralize all decisions"
-    ],
-    "answer": 0,
-    "explanation": "ITIL recognizes that value comes from the whole system, not isolated components."
-  },
-  {
-    "q": "A service provider improves internal efficiency but customers experience no improvement. What is the most likely issue?",
-    "options": [
-      "The improvement was not connected to stakeholder value",
-      "Too much collaboration occurred",
-      "Governance was unnecessary",
-      "Automation was insufficient"
-    ],
-    "answer": 0,
-    "explanation": "Efficiency alone does not guarantee value creation."
-  },
-  {
-    "q": "A service provider introduces a new monitoring tool that generates thousands of alerts. The operations team spends most of its time reviewing irrelevant notifications. Which ITIL principle should guide the improvement?",
-    "options": [
-      "Optimize and automate",
-      "Keep it simple and practical",
-      "Start where you are",
-      "Progress iteratively with feedback"
+      "Nothing — dimensions are independently scored and averaged for an overall health metric",
+      "The four dimensions are interdependent (PESTLE-influenced) and a weakness in one can undermine value creation regardless of strength in the others, so it cannot simply be averaged away",
+      "Value Streams & Processes is not actually one of the four dimensions in ITIL 5",
+      "The claim is correct only if the organization operates in a regulated industry"
     ],
     "answer": 1,
-    "explanation": "The objective is not to collect more information but to simplify operations and focus on useful outputs."
+    "explanation": "The four dimensions are meant to be viewed holistically; a systemic weakness in one (e.g., poor processes) can bottleneck value delivery even when other dimensions are strong — they aren't averaged."
   },
   {
-    "q": "A company wants to redesign its service management approach. Before making changes, the team analyzes existing processes, capabilities, and available data. Which guiding principle is applied?",
+    "q": "A digital product team ships a feature update weekly using automated pipelines with minimal human review, arguing this exemplifies 'optimize and automate.' A governance reviewer flags this as a guiding-principle violation. Which principle is most likely being under-applied?",
     "options": [
       "Focus on value",
-      "Start where you are",
-      "Collaborate and promote visibility",
-      "Optimize and automate"
-    ],
-    "answer": 1,
-    "explanation": "Starting with an understanding of the current state prevents unnecessary changes and waste."
-  },
-  {
-    "q": "A service provider and customer jointly define desired outcomes, responsibilities, and expectations. Which ITIL concept does this demonstrate?",
-    "options": [
-      "Value co-creation",
-      "Process ownership",
-      "Operational control",
-      "Technical governance"
-    ],
-    "answer": 0,
-    "explanation": "ITIL defines value as created through cooperation between providers and consumers."
-  },
-  {
-    "q": "A company improves a service by removing unnecessary approval steps, but keeps required controls. Which approach does this represent?",
-    "options": [
       "Keep it simple and practical",
-      "Eliminate governance completely",
-      "Replace practices with automation",
-      "Avoid measuring performance"
+      "Collaborate and promote visibility",
+      "Start where you are"
     ],
-    "answer": 0,
-    "explanation": "Simplicity means removing unnecessary complexity while preserving necessary controls."
+    "answer": 2,
+    "explanation": "Removing human review can reduce visibility and collaborative oversight; 'optimize and automate' does not exempt a team from ensuring transparency and stakeholder involvement — automation should follow optimization and visibility, not replace it."
   },
   {
-    "q": "A development team releases a service improvement directly to all users without testing or feedback. Which principle would have reduced the risk?",
+    "q": "A newly formed digital transformation office wants to redesign the entire IT operating model from scratch, discarding all existing practices because 'legacy processes are the problem.' Which guiding principle most directly cautions against this approach?",
     "options": [
       "Progress iteratively with feedback",
-      "Optimize and automate",
-      "Focus only on documentation",
-      "Centralize decision making"
-    ],
-    "answer": 0,
-    "explanation": "Incremental improvement with feedback helps identify issues before large-scale implementation."
-  },
-  {
-    "q": "An organization has multiple teams working on a digital service. Each team optimizes its own objectives, causing conflicts and delays. Which concept should be emphasized?",
-    "options": [
+      "Start where you are",
       "Think and work holistically",
-      "Increase individual team autonomy only",
-      "Remove collaboration requirements",
-      "Measure only technical performance"
-    ],
-    "answer": 0,
-    "explanation": "A service management system must consider the entire value system rather than isolated components."
-  },
-  {
-    "q": "A service owner asks users what they consider valuable before deciding which improvements to implement. Which principle is demonstrated?",
-    "options": [
-      "Focus on value",
-      "Optimize and automate",
-      "Start where you are",
-      "Keep it simple and practical"
-    ],
-    "answer": 0,
-    "explanation": "Understanding stakeholder needs is central to focusing on value."
-  },
-  {
-    "q": "A company creates a dashboard showing service metrics but hides negative results from stakeholders. Which ITIL guidance is violated?",
-    "options": [
-      "Collaborate and promote visibility",
-      "Optimize and automate",
-      "Start where you are",
-      "Keep it simple and practical"
-    ],
-    "answer": 0,
-    "explanation": "Transparency enables better collaboration and informed decisions."
-  },
-  {
-    "q": "A service provider wants to improve a workflow. The team discovers that a current manual activity creates unnecessary delays. What should happen before automation?",
-    "options": [
-      "Analyze and optimize the workflow first",
-      "Automate the existing workflow immediately",
-      "Remove all human involvement",
-      "Increase reporting requirements"
-    ],
-    "answer": 0,
-    "explanation": "ITIL recommends optimizing before automating."
-  },
-  {
-    "q": "A company evaluates a new digital service. The technical team reports success because uptime targets are achieved, but customers report that business outcomes are not improved. Which statement best reflects ITIL thinking?",
-    "options": [
-      "The service is successful because availability is the primary measure",
-      "The service must be evaluated based on stakeholder value and outcomes",
-      "Customer feedback should not influence technical decisions",
-      "Operational metrics should replace business measurements"
+      "Focus on value"
     ],
     "answer": 1,
-    "explanation": "Technical performance is only one aspect; value depends on outcomes experienced by stakeholders."
+    "explanation": "'Start where you are' warns against discarding existing capabilities without first assessing what can be reused or built upon — starting from zero is rarely necessary or efficient."
   },
   {
-    "q": "A service provider notices that different teams use different definitions of service success. Some measure technical performance while others measure customer outcomes. What should be established first?",
+    "q": "A service provider offers 24/7 support but users in a specific region report the service is unusable because response times regularly exceed 10 seconds during their business hours, despite meeting the aggregate global SLA of under 3 seconds average. What does this scenario best illustrate?",
     "options": [
-      "A shared understanding of value and desired outcomes",
-      "A single technical monitoring platform",
-      "More detailed operational procedures",
-      "A larger governance committee"
+      "Aggregate SLA metrics can mask localized warranty failures that materially affect the experienced value for a subset of users",
+      "This is purely a utility problem since the feature set is unaffected",
+      "SLAs are irrelevant once a service passes 99% availability globally",
+      "The users are misinterpreting warranty as utility"
     ],
     "answer": 0,
-    "explanation": "ITIL emphasizes shared understanding of value across stakeholders before optimizing individual measurements."
+    "explanation": "Warranty concerns performance experienced by the actual user base, not just averaged global metrics — regional degradation is a real warranty issue hidden by aggregation."
   },
   {
-    "q": "A company introduces an AI assistant for service requests. The assistant resolves simple requests successfully, but complex cases are incorrectly categorized. What is the best ITIL-aligned response?",
+    "q": "During a service value stream mapping exercise, the team discovers that 'Design & transition' hands off work to 'Obtain/build' and back to 'Design & transition' multiple times before reaching 'Deliver & support.' A stakeholder claims this proves the value chain model is broken. What is the correct response?",
     "options": [
-      "Remove automation completely",
-      "Improve the solution using feedback and continual improvement",
-      "Ignore the incorrect cases because automation increased efficiency",
-      "Increase automation without analyzing failures"
+      "The stakeholder is right — value chain activities must not repeat",
+      "This is expected; activities can be revisited multiple times within a single value stream as needed, since the value chain is not a linear pipeline",
+      "This only happens when 'Improve' has been skipped",
+      "Repetition indicates the organization should abandon the ITIL value chain model"
     ],
     "answer": 1,
-    "explanation": "AI-enabled services still require continual improvement and feedback loops."
+    "explanation": "Value streams are flexible combinations of value chain activities and commonly loop back and forth between activities (e.g. iterative build/design cycles) — this isn't a flaw in the model."
   },
   {
-    "q": "A service management team creates a detailed process map but employees still do not understand their responsibilities. Which area should be improved?",
+    "q": "A company treats 'governance' as something only the board handles, separate from daily service management practices. Within the ITIL Value System, why is this framing incomplete?",
     "options": [
-      "Clarity of roles, collaboration, and value streams",
-      "Increasing documentation complexity",
-      "Adding more approval points",
-      "Replacing employees with automation"
+      "Governance sits outside the ITIL Value System entirely",
+      "Governance directs the whole Value System (evaluate, direct, monitor) and shapes how the value chain and practices operate — it is not isolated from operational activity",
+      "Governance is identical to the 'Improve' value chain activity",
+      "Governance only applies to organizations with external regulators"
     ],
-    "answer": 0,
-    "explanation": "ITIL focuses on effective collaboration and understanding how activities contribute to value."
+    "answer": 1,
+    "explanation": "In the ITIL Value System, governance (Evaluate–Direct–Monitor) directs and constrains the value chain and practices; it is integrated into, not separate from, operational value creation."
   },
   {
-    "q": "A manager wants to improve customer satisfaction. The team proposes buying a new tool immediately. What should happen according to ITIL?",
+    "q": "A problem manager closes a known error record after a permanent fix is deployed, but does not update the CMDB entries for affected configuration items. Which practice's data integrity has been compromised?",
     "options": [
-      "Understand the desired value and current situation before selecting solutions",
-      "Purchase the most advanced tool available",
-      "Automate all customer interactions",
-      "Ignore existing capabilities"
-    ],
-    "answer": 0,
-    "explanation": "ITIL discourages technology-first decisions without understanding needs and current state."
-  },
-  {
-    "q": "A service provider has excellent individual practices but cannot deliver consistent outcomes because activities are disconnected. Which ITIL concept addresses this?",
-    "options": [
-      "Service Value System",
-      "Individual practice optimization only",
-      "Technical architecture management",
-      "Documentation management"
-    ],
-    "answer": 0,
-    "explanation": "The Service Value System describes how components work together to enable value creation."
-  },
-  {
-    "q": "A company reviews improvement opportunities and prioritizes those that produce the greatest benefit for stakeholders. Which concept is demonstrated?",
-    "options": [
-      "Focus on value",
-      "Optimize and automate",
-      "Start where you are",
-      "Standardization only"
-    ],
-    "answer": 0,
-    "explanation": "Improvements should be prioritized according to value."
-  },
-  {
-    "q": "An organization automates a poorly designed workflow and creates more problems. Which lesson aligns with ITIL?",
-    "options": [
-      "Automation should follow optimization",
-      "Automation should always replace manual activities",
-      "More automation always creates more value",
-      "Processes should never change"
-    ],
-    "answer": 0,
-    "explanation": "Automating waste increases inefficiency; optimize first."
-  },
-  {
-    "q": "A service owner wants to introduce improvements but cannot determine whether they succeeded. What capability is missing?",
-    "options": [
-      "Measurement and evaluation of outcomes",
-      "More automation",
-      "Additional procedures",
-      "Less stakeholder involvement"
-    ],
-    "answer": 0,
-    "explanation": "Continual improvement requires measuring whether changes create desired results."
-  },
-  {
-    "q": "A company creates a new service without considering security, operations, and support requirements. Which principle is most relevant?",
-    "options": [
-      "Think and work holistically",
-      "Optimize and automate",
-      "Keep it simple",
-      "Start where you are"
-    ],
-    "answer": 0,
-    "explanation": "Services require consideration of all relevant components and relationships."
-  },
-  {
-    "q": "A team collects customer feedback but never uses it to improve services. Which ITIL practice is missing?",
-    "options": [
-      "Continual improvement",
-      "Incident management",
-      "Monitoring and event management",
+      "Change enablement",
+      "Service configuration management",
+      "Release management",
       "Deployment management"
     ],
-    "answer": 0,
-    "explanation": "Feedback should drive improvement activities."
+    "answer": 1,
+    "explanation": "Service configuration management maintains accurate information about configuration items and their relationships; failing to update CI records after a fix undermines its purpose regardless of problem management's own success."
   },
   {
-    "q": "A service provider wants to reduce costs. Which approach best aligns with ITIL?",
+    "q": "A team introduces an AI chatbot to triage incidents automatically before human involvement. Six months later, mean-time-to-resolution has worsened because the bot frequently misclassifies complex incidents, delaying escalation. Under ITIL 5's AI governance emphasis, what is the most accurate takeaway?",
     "options": [
-      "Reduce activities that do not contribute to value",
-      "Remove all controls",
-      "Ignore customer requirements",
-      "Decrease quality metrics"
-    ],
-    "answer": 0,
-    "explanation": "Optimization focuses on eliminating waste while maintaining value."
-  },
-  {
-    "q": "A governance body defines strategic direction while operational teams execute daily activities. Which statement is correct?",
-    "options": [
-      "Governance and management have different responsibilities",
-      "Governance replaces management",
-      "Operations define strategy",
-      "Management controls governance"
-    ],
-    "answer": 0,
-    "explanation": "Governance directs and monitors; management executes."
-  },
-  {
-    "q": "A company creates a service catalog containing technical components but users cannot understand what services are available. What should improve?",
-    "options": [
-      "The service description should focus on consumer value",
-      "Add more infrastructure details",
-      "Remove customer information",
-      "Increase technical terminology"
-    ],
-    "answer": 0,
-    "explanation": "Services should be described from the consumer perspective."
-  },
-  {
-    "q": "A team wants to improve a process but lacks information about current performance. What should they do?",
-    "options": [
-      "Assess the current state before changing it",
-      "Immediately redesign the process",
-      "Automate the process",
-      "Ignore existing data"
-    ],
-    "answer": 0,
-    "explanation": "Start where you are requires understanding the current situation."
-  },
-  {
-    "q": "A service provider measures success only by internal productivity. Which important perspective may be missing?",
-    "options": [
-      "Stakeholder value and outcomes",
-      "Additional internal reporting",
-      "More technical controls",
-      "More automation"
-    ],
-    "answer": 0,
-    "explanation": "Internal efficiency does not automatically represent value."
-  },
-
-  {
-    "q": "A service provider notices that different teams use different definitions of service success. Some measure technical performance while others measure customer outcomes. What should be established first?",
-    "options": [
-      "A shared understanding of value and desired outcomes",
-      "A single technical monitoring platform",
-      "More detailed operational procedures",
-      "A larger governance committee"
-    ],
-    "answer": 0,
-    "explanation": "ITIL emphasizes shared understanding of value across stakeholders before optimizing individual measurements."
-  },
-  {
-    "q": "A company introduces an AI assistant for service requests. The assistant resolves simple requests successfully, but complex cases are incorrectly categorized. What is the best ITIL-aligned response?",
-    "options": [
-      "Remove automation completely",
-      "Improve the solution using feedback and continual improvement",
-      "Ignore the incorrect cases because automation increased efficiency",
-      "Increase automation without analyzing failures"
+      "AI should never be used in incident management",
+      "Automation must be governed and validated against outcomes, not adopted purely because it is technologically capable — an ungoverned AI deployment can degrade value",
+      "The problem is solely with incident management practice design, unrelated to AI governance",
+      "MTTR is not a valid metric once AI is introduced"
     ],
     "answer": 1,
-    "explanation": "AI-enabled services still require continual improvement and feedback loops."
+    "explanation": "ITIL 5's AI-native guidance stresses governing AI adoption against real outcomes and risk, not deploying automation for its own sake; a misclassifying bot without oversight is a governance failure."
   },
   {
-    "q": "A service management team creates a detailed process map but employees still do not understand their responsibilities. Which area should be improved?",
+    "q": "An organization's 'focus on value' initiative results in cutting a monitoring capability that customers never directly see, since it doesn't obviously map to a customer-facing outcome. Post-cut, unnoticed outages increase. What was misapplied?",
     "options": [
-      "Clarity of roles, collaboration, and value streams",
-      "Increasing documentation complexity",
-      "Adding more approval points",
-      "Replacing employees with automation"
-    ],
-    "answer": 0,
-    "explanation": "ITIL focuses on effective collaboration and understanding how activities contribute to value."
-  },
-  {
-    "q": "A manager wants to improve customer satisfaction. The team proposes buying a new tool immediately. What should happen according to ITIL?",
-    "options": [
-      "Understand the desired value and current situation before selecting solutions",
-      "Purchase the most advanced tool available",
-      "Automate all customer interactions",
-      "Ignore existing capabilities"
-    ],
-    "answer": 0,
-    "explanation": "ITIL discourages technology-first decisions without understanding needs and current state."
-  },
-  {
-    "q": "A service provider has excellent individual practices but cannot deliver consistent outcomes because activities are disconnected. Which ITIL concept addresses this?",
-    "options": [
-      "Service Value System",
-      "Individual practice optimization only",
-      "Technical architecture management",
-      "Documentation management"
-    ],
-    "answer": 0,
-    "explanation": "The Service Value System describes how components work together to enable value creation."
-  },
-  {
-    "q": "A company reviews improvement opportunities and prioritizes those that produce the greatest benefit for stakeholders. Which concept is demonstrated?",
-    "options": [
-      "Focus on value",
-      "Optimize and automate",
-      "Start where you are",
-      "Standardization only"
-    ],
-    "answer": 0,
-    "explanation": "Improvements should be prioritized according to value."
-  },
-  {
-    "q": "An organization automates a poorly designed workflow and creates more problems. Which lesson aligns with ITIL?",
-    "options": [
-      "Automation should follow optimization",
-      "Automation should always replace manual activities",
-      "More automation always creates more value",
-      "Processes should never change"
-    ],
-    "answer": 0,
-    "explanation": "Automating waste increases inefficiency; optimize first."
-  },
-  {
-    "q": "A service owner wants to introduce improvements but cannot determine whether they succeeded. What capability is missing?",
-    "options": [
-      "Measurement and evaluation of outcomes",
-      "More automation",
-      "Additional procedures",
-      "Less stakeholder involvement"
-    ],
-    "answer": 0,
-    "explanation": "Continual improvement requires measuring whether changes create desired results."
-  },
-  {
-    "q": "A company creates a new service without considering security, operations, and support requirements. Which principle is most relevant?",
-    "options": [
-      "Think and work holistically",
-      "Optimize and automate",
-      "Keep it simple",
-      "Start where you are"
-    ],
-    "answer": 0,
-    "explanation": "Services require consideration of all relevant components and relationships."
-  },
-  {
-    "q": "A team collects customer feedback but never uses it to improve services. Which ITIL practice is missing?",
-    "options": [
-      "Continual improvement",
-      "Incident management",
-      "Monitoring and event management",
-      "Deployment management"
-    ],
-    "answer": 0,
-    "explanation": "Feedback should drive improvement activities."
-  },
-  {
-    "q": "A service provider wants to reduce costs. Which approach best aligns with ITIL?",
-    "options": [
-      "Reduce activities that do not contribute to value",
-      "Remove all controls",
-      "Ignore customer requirements",
-      "Decrease quality metrics"
-    ],
-    "answer": 0,
-    "explanation": "Optimization focuses on eliminating waste while maintaining value."
-  },
-  {
-    "q": "A governance body defines strategic direction while operational teams execute daily activities. Which statement is correct?",
-    "options": [
-      "Governance and management have different responsibilities",
-      "Governance replaces management",
-      "Operations define strategy",
-      "Management controls governance"
-    ],
-    "answer": 0,
-    "explanation": "Governance directs and monitors; management executes."
-  },
-  {
-    "q": "A company creates a service catalog containing technical components but users cannot understand what services are available. What should improve?",
-    "options": [
-      "The service description should focus on consumer value",
-      "Add more infrastructure details",
-      "Remove customer information",
-      "Increase technical terminology"
-    ],
-    "answer": 0,
-    "explanation": "Services should be described from the consumer perspective."
-  },
-  {
-    "q": "A team wants to improve a process but lacks information about current performance. What should they do?",
-    "options": [
-      "Assess the current state before changing it",
-      "Immediately redesign the process",
-      "Automate the process",
-      "Ignore existing data"
-    ],
-    "answer": 0,
-    "explanation": "Start where you are requires understanding the current situation."
-  },
-  {
-    "q": "A service provider measures success only by internal productivity. Which important perspective may be missing?",
-    "options": [
-      "Stakeholder value and outcomes",
-      "Additional internal reporting",
-      "More technical controls",
-      "More automation"
-    ],
-    "answer": 0,
-    "explanation": "Internal efficiency does not automatically represent value."
-  },
-
-  {
-    "q": "A global organization experiences repeated interruptions of a critical digital service. The service desk restores service quickly each time, but the interruptions continue to happen. Which practice should primarily investigate why these incidents are recurring?",
-    "options": [
-      "Incident Management",
-      "Problem Management",
-      "Service Request Management",
-      "Monitoring and Event Management"
+      "Nothing — indirect/internal value enablers were correctly deprioritized",
+      "'Focus on value' was applied too narrowly to only customer-visible features, ignoring that internal capabilities (like monitoring) enable the warranty aspects (availability, reliability) that customers do value, even if indirectly",
+      "This is a 'keep it simple and practical' failure, unrelated to value focus",
+      "Monitoring is never considered part of value in ITIL"
     ],
     "answer": 1,
-    "explanation": "Problem Management identifies and manages the causes of incidents and helps prevent recurrence."
+    "explanation": "Value includes enabling capabilities that support warranty and reliability even when invisible to the customer; narrowly equating 'value' with visible features is a common misapplication of the principle."
   },
   {
-    "q": "A user reports that a business application is unavailable. The service desk confirms the issue and immediately restores access using a known workaround. What was the primary objective achieved?",
+    "q": "A customer organization insists on defining every operational procedure for a supplier delivering a collaborative (partnership) service, leaving the supplier no autonomy in how outcomes are achieved. What tension does this create relative to the nature of a collaborative relationship?",
     "options": [
-      "Identifying the root cause",
-      "Restoring normal service operation",
-      "Implementing a permanent solution",
-      "Authorizing an emergency change"
+      "None — collaborative relationships require the customer to control all procedures",
+      "It undermines the collaborative nature, which involves shared risk, mutual objective-setting, and co-creation rather than one party dictating all operational detail to the other",
+      "This actually describes a basic relationship, not a partnership issue",
+      "Collaborative relationships are only about pricing, not procedures"
     ],
     "answer": 1,
-    "explanation": "Incident Management focuses on restoring service as quickly as possible, not necessarily finding the underlying cause."
+    "explanation": "A collaborative/partnership relationship implies shared goals, mutual investment, and joint decision-making — dictating every procedure resembles a basic/transactional dynamic, contradicting the partnership model."
   },
   {
-    "q": "A company receives thousands of requests for standard software installation. Each request follows the same approval and fulfillment process. Which practice should manage these activities?",
+    "q": "A service provider reports 100% of change requests were approved by the Change Authority within SLA. However, post-implementation reviews show 30% of changes required rollback. What does this combination most likely indicate?",
     "options": [
-      "Incident Management",
-      "Service Request Management",
-      "Problem Management",
-      "Change Enablement"
+      "Change enablement is fully successful because approval SLA was met",
+      "The approval process may be a procedural checkbox rather than a genuine risk assessment — meeting approval SLA does not equal effective change evaluation",
+      "The rollback rate is unrelated to change enablement practice performance",
+      "This indicates a problem management failure exclusively"
     ],
     "answer": 1,
-    "explanation": "Service Request Management handles predefined user requests with predictable workflows."
+    "explanation": "Meeting a procedural SLA (timeliness of approval) is a different measure than the practice achieving its purpose (ensuring changes are successfully implemented with minimized risk) — high rollback rates suggest the evaluation itself is weak."
   },
   {
-    "q": "A development team wants to release a major feature directly into production because testing was successful. The change manager requires impact assessment and authorization first. Which practice supports this requirement?",
+    "q": "A 'basic' service relationship exists between a small vendor and a customer purchasing a standardized off-the-shelf digital tool with no customization. Later, the customer requests custom integrations and ongoing joint roadmap planning. What should happen to the classification of the relationship?",
     "options": [
-      "Change Enablement",
-      "Incident Management",
-      "Service Desk",
-      "Release Management"
-    ],
-    "answer": 0,
-    "explanation": "Change Enablement ensures changes are assessed, authorized, and managed to maximize value while reducing risk."
-  },
-  {
-    "q": "A service provider approves every change through the same lengthy approval process, including low-risk repetitive changes. What should be improved?",
-    "options": [
-      "Eliminate all change approvals",
-      "Use appropriate change models based on risk and type",
-      "Treat all changes as emergency changes",
-      "Avoid documenting changes"
+      "Nothing changes — relationship types are fixed at initial contract signing",
+      "The relationship may evolve toward cooperative or collaborative, since the nature of interaction (joint planning, customization) reflects deeper interdependence than a basic transactional exchange",
+      "It becomes a digital product vendor relationship automatically",
+      "Custom integration always indicates a basic relationship regardless of planning involvement"
     ],
     "answer": 1,
-    "explanation": "ITIL encourages efficient change management using appropriate models, including standard changes."
+    "explanation": "Relationship types (basic/cooperative/collaborative) reflect the actual nature and depth of interaction, which can change over time as engagement deepens — they aren't permanently fixed by the original contract type."
   },
   {
-    "q": "A company measures service desk performance only by the number of tickets closed. Customer satisfaction decreases despite improved productivity. What is the most likely issue?",
+    "q": "A continual improvement initiative is stalled because every proposed metric for 'Did we get there?' is disputed by stakeholders as 'not the right measure.' What foundational step was most likely skipped earlier in the model?",
     "options": [
-      "The organization is measuring outputs instead of value",
-      "The service desk requires more automation",
-      "Incident Management is unnecessary",
-      "More tickets should be closed"
-    ],
-    "answer": 0,
-    "explanation": "ITIL focuses on outcomes and value, not only activity volume."
-  },
-  {
-    "q": "A service provider wants to ensure that suppliers continue delivering expected value. Which practice should establish and maintain effective supplier relationships?",
-    "options": [
-      "Supplier Management",
-      "Service Desk",
-      "Deployment Management",
-      "Incident Management"
-    ],
-    "answer": 0,
-    "explanation": "Supplier Management ensures suppliers and their performance support organizational objectives."
-  },
-  {
-    "q": "A monitoring system detects that a server is approaching resource limits, but users are not yet affected. Which practice is primarily concerned with handling this situation?",
-    "options": [
-      "Monitoring and Event Management",
-      "Incident Management",
-      "Problem Management",
-      "Service Request Management"
-    ],
-    "answer": 0,
-    "explanation": "Monitoring and Event Management observes services and components and responds to events."
-  },
-  {
-    "q": "A service owner wants to know whether a service meets agreed expectations with customers. Which practice provides the strongest focus?",
-    "options": [
-      "Service Level Management",
-      "Deployment Management",
-      "IT Asset Management",
-      "Problem Management"
-    ],
-    "answer": 0,
-    "explanation": "Service Level Management establishes shared expectations and monitors service performance against agreed objectives."
-  },
-  {
-    "q": "A company documents the relationships between services, applications, infrastructure components, and configuration items. Which practice supports this activity?",
-    "options": [
-      "Service Configuration Management",
-      "Service Request Management",
-      "Release Management",
-      "Relationship Management"
-    ],
-    "answer": 0,
-    "explanation": "Service Configuration Management maintains information about configuration items and their relationships."
-  },
-  {
-    "q": "A team successfully deploys software into production but users cannot access the new capability because communication and preparation were incomplete. Which practice was most likely insufficient?",
-    "options": [
-      "Release Management",
-      "Incident Management",
-      "Problem Management",
-      "Monitoring and Event Management"
-    ],
-    "answer": 0,
-    "explanation": "Release Management makes new or changed services available for use, including preparation activities."
-  },
-  {
-    "q": "A company separates the activities of making software available for use from moving software into an environment. Why?",
-    "options": [
-      "Because release and deployment have different purposes",
-      "Because deployment is unnecessary",
-      "Because releases cannot contain changes",
-      "Because testing replaces deployment"
-    ],
-    "answer": 0,
-    "explanation": "Release Management and Deployment Management are related but have different objectives."
-  },
-  {
-    "q": "A service team improves a process without considering security, suppliers, technology, and customer expectations. Which guiding principle was ignored?",
-    "options": [
-      "Think and work holistically",
-      "Optimize and automate",
-      "Start where you are",
-      "Keep it simple and practical"
-    ],
-    "answer": 0,
-    "explanation": "ITIL requires considering the whole service management system."
-  },
-  {
-    "q": "A company wants to automate incident categorization. Before implementing automation, what should happen?",
-    "options": [
-      "Understand and optimize the current workflow",
-      "Remove human involvement immediately",
-      "Automate every available activity",
-      "Ignore current process problems"
-    ],
-    "answer": 0,
-    "explanation": "Automation should enhance optimized processes, not automate poor practices."
-  },
-  {
-    "q": "A service provider introduces a new service without understanding customer needs. Which ITIL concept was neglected?",
-    "options": [
-      "Focus on value",
-      "Optimize and automate",
-      "Deployment Management",
-      "Supplier Management"
-    ],
-    "answer": 0,
-    "explanation": "Services should be designed around stakeholder value and outcomes."
-  },
-
-  {
-    "q": "A service provider notices that a large number of incidents are caused by poorly understood system behavior. The team creates temporary fixes but does not investigate deeper causes. Which practice should take ownership of preventing recurrence?",
-    "options": [
-      "Incident Management",
-      "Problem Management",
-      "Service Request Management",
-      "Service Level Management"
+      "'What is the vision?' was skipped, so there's no shared direction to measure against",
+      "'Where are we now?' should have defined agreed metrics/targets earlier ('Where do we want to be?') so that success criteria wouldn't be contested this late",
+      "'How do we keep the momentum going?' was skipped",
+      "This is unrelated to the continual improvement model"
     ],
     "answer": 1,
-    "explanation": "Problem Management focuses on identifying causes of incidents and reducing the likelihood and impact of future incidents."
+    "explanation": "Disputes over what counts as 'getting there' usually trace back to '(Where do we want to be?' not producing clear, agreed, measurable targets earlier in the model — that step should define the success criteria used later."
   },
   {
-    "q": "A business user requests access to an approved application. The request follows a predefined workflow with standard authorization. Which statement BEST describes this activity?",
+    "q": "An organization's service desk practice is measured purely on average call handling time, driving agents to close tickets quickly without fully resolving user issues, leading to repeat contacts. What ITIL principle-and-practice mismatch does this best illustrate?",
     "options": [
-      "It is an incident because the user needs assistance",
-      "It is a service request because it is a predefined user request",
-      "It is a problem because access management is required",
-      "It is a change because every request modifies a system"
+      "The service desk practice's true purpose (being the entry point providing a good experience and effective resolution) is undermined by a metric optimizing a proxy (handling time) rather than actual value/outcome",
+      "This shows incident management is broken, not the service desk",
+      "Handling time is the correct primary metric per ITIL 5 and repeat contacts are unrelated",
+      "This is exclusively a problem management issue"
+    ],
+    "answer": 0,
+    "explanation": "Measuring and rewarding a proxy metric (speed) instead of outcome (resolution quality, user experience) is a classic case of practice purpose being subverted by poorly chosen KPIs — a recurring exam trap."
+  },
+  {
+    "q": "A company claims it has 'adopted ITIL 5' because it renamed its ITIL 4 process documents to reference the new terminology (e.g., 'service relationships' instead of 'service consumer roles') without changing any actual practice behavior. What is the most accurate critique?",
+    "options": [
+      "This is a valid and sufficient adoption of ITIL 5",
+      "Terminology changes alone do not constitute adoption; ITIL 5's value lies in genuinely applying its expanded concepts (co-creation, lifecycle thinking, sustainability, AI governance) to behavior and decision-making, not just relabeling documents",
+      "ITIL 5 adoption is purely a documentation exercise by design",
+      "This critique doesn't apply since ITIL 4 and ITIL 5 terminology are identical"
     ],
     "answer": 1,
-    "explanation": "Service requests are predefined requests initiated by users and handled through established workflows."
+    "explanation": "A frequent 'trap' theme in ITIL exams: frameworks are meant to change practical behavior and decision-making, not just vocabulary — cosmetic relabeling isn't genuine adoption."
   },
   {
-    "q": "A company wants to reduce the impact of failures by identifying important dependencies between services and technology components. Which practice provides essential information for this objective?",
+    "q": "A supplier delivering a critical component experiences a disruption. The customer organization has no visibility into the supplier's incident status and only finds out about the impact when their own users start reporting problems. Which management practice gap does this best represent?",
     "options": [
-      "Service Configuration Management",
-      "Relationship Management",
-      "Service Desk",
-      "Deployment Management"
+      "Supplier management — insufficient integration/communication mechanisms between the organization's and supplier's practices",
+      "Service level management, exclusively",
+      "Incident management within the customer's organization only",
+      "This is not a practice gap; it is unavoidable with external suppliers"
     ],
     "answer": 0,
-    "explanation": "Configuration information and relationships help understand service dependencies and impacts."
+    "explanation": "Supplier management's purpose includes ensuring suppliers and their performance are managed appropriately, including communication/escalation mechanisms — a blind spot here is a supplier management gap, not just an internal one."
   },
   {
-    "q": "A change is urgently required to resolve a major security vulnerability. The normal assessment process cannot be completed in time. What should happen?",
+    "q": "A team debates whether 'Engage' or 'Deliver & support' is the correct value chain activity for handling a user's request to reset a password. Which reasoning is correct?",
     "options": [
-      "Reject the change because normal assessment was impossible",
-      "Use an appropriate emergency change process",
-      "Implement the change without authorization",
-      "Wait until the next normal change window"
+      "It must be 'Engage' only, since any interaction with a user starts there",
+      "It is most directly 'Deliver & support', since fulfilling routine service requests is its core purpose, though 'Engage' may play a minor supporting role in the interaction channel",
+      "It must be 'Obtain/build', since resetting a password involves a technical resource",
+      "Value chain activities never apply to routine requests, only to major changes"
     ],
     "answer": 1,
-    "explanation": "Emergency changes require accelerated handling while still maintaining appropriate control."
+    "explanation": "'Deliver & support' covers day-to-day operational delivery of services and requests, including password resets; 'Engage' is more about relationship-building and gathering demand/requirements broadly, not routine fulfillment."
   },
   {
-    "q": "A service provider wants to improve customer relationships. The team focuses only on resolving technical issues and ignores business expectations. Which practice area is being neglected?",
+    "q": "A sponsor cuts funding for a service improvement initiative after seeing a dashboard showing 'Green' status on all KPIs, unaware that the KPIs were all output metrics (e.g., number of tickets closed) rather than outcome metrics (e.g., reduction in business disruption). What systemic issue does this reveal?",
     "options": [
-      "Relationship Management",
-      "Monitoring and Event Management",
-      "Deployment Management",
-      "Service Configuration Management"
+      "Sponsors should never see dashboards",
+      "A disconnect between measured outputs and actual value/outcomes can mislead decision-makers, undermining the value co-creation this initiative was meant to support",
+      "KPI dashboards are inherently unreliable and should be abandoned",
+      "This is purely a governance issue with no connection to value co-creation"
     ],
-    "answer": 0,
-    "explanation": "Relationship Management focuses on establishing and improving relationships with stakeholders."
+    "answer": 1,
+    "explanation": "This tests the recurring exam theme that output metrics ≠ outcome/value metrics; sponsors making decisions on the wrong type of metric can inadvertently harm value co-creation."
   },
   {
-    "q": "A company introduces a new service but has no clear understanding of who owns decisions, responsibilities, and communication. Which ITIL concept should address this?",
+    "q": "A release is deployed successfully with zero incidents in the first 24 hours. The release manager declares full success. A senior stakeholder disagrees. What is the most likely valid basis for disagreement?",
     "options": [
-      "Governance and clear accountability",
-      "Increasing automation",
-      "Reducing stakeholder involvement",
-      "Removing service ownership"
+      "There is no valid basis; zero incidents in 24 hours defines success",
+      "Absence of incidents shortly after release does not confirm the release achieved its intended value/outcomes for users, which may take longer to observe or require explicit outcome measurement",
+      "Release management's purpose is solely to avoid incidents",
+      "The stakeholder is only disagreeing due to unrelated organizational politics"
     ],
-    "answer": 0,
-    "explanation": "Governance establishes direction, accountability, and decision-making authority."
+    "answer": 1,
+    "explanation": "Technical stability (no incidents) is necessary but not sufficient evidence of value delivery; outcomes and adoption often take longer to assess than 24 hours — a classic 'don't confuse absence of failure with presence of value' trap."
   },
   {
-    "q": "A service team continuously improves processes but does not verify whether improvements actually benefit users. Which activity is missing?",
+    "q": "A cooperative service relationship is described in a customer contract as if it were a basic relationship — fixed-price, fixed-scope, minimal engagement — but in practice, the customer and provider co-invest in roadmap planning and jointly review outcomes quarterly. Which is more accurate?",
     "options": [
-      "Evaluating outcomes and value",
-      "Adding more improvement initiatives",
-      "Increasing documentation",
-      "Reducing measurements"
+      "The contract's classification is authoritative and overrides actual behavior",
+      "The lived nature of the relationship (co-investment, joint review) is cooperative regardless of how the contract labels it, since relationship type reflects actual interaction patterns",
+      "This is impossible; contracts and relationship types must always match",
+      "Quarterly reviews alone always indicate a collaborative, not cooperative, relationship"
     ],
-    "answer": 0,
-    "explanation": "Continual improvement requires measuring whether changes achieved desired value."
+    "answer": 1,
+    "explanation": "Relationship classification (basic/cooperative/collaborative) is about the substance of interaction, not merely contractual labeling — mismatches between paperwork and practice are a recurring nuanced exam theme."
   },
   {
-    "q": "A monitoring tool generates an alert indicating abnormal behavior. No service interruption has occurred. What should happen first?",
+    "q": "A practice owner insists that 'service level management' and 'supplier management' are entirely independent practices with no meaningful overlap. Under what circumstance is this claim most clearly wrong?",
     "options": [
-      "Assess and respond according to event significance",
-      "Immediately create a problem record",
-      "Automatically declare a major incident",
-      "Ignore the event because users are unaffected"
+      "It is never wrong; these practices are fully independent by design",
+      "When a supplier's performance directly determines whether SLAs to the end customer can be met, the two practices must coordinate — supplier-side SLAs (underpinning agreements) feed into customer-facing service levels",
+      "Supplier management does not exist as a distinct practice in ITIL 5",
+      "Service level management only concerns internal teams, never suppliers"
     ],
-    "answer": 0,
-    "explanation": "Events must be evaluated according to their significance and potential impact."
+    "answer": 1,
+    "explanation": "Practices are not meant to be siloed; supplier performance commonly underpins the organization's ability to meet its own SLAs, requiring coordination between supplier management and service level management."
   },
   {
-    "q": "A service provider wants to improve availability of a critical service. Which approach is MOST aligned with ITIL?",
+    "q": "An organization wants to apply 'think and work holistically' but interprets it as 'every decision requires sign-off from every department.' What is the flaw in this interpretation?",
     "options": [
-      "Understand service requirements, risks, and performance expectations",
-      "Only purchase additional hardware",
-      "Only increase monitoring frequency",
-      "Remove all planned maintenance activities"
+      "There is no flaw; this is the correct application",
+      "Holistic thinking means considering interdependencies and end-to-end impact in decisions, not mandating universal bureaucratic sign-off — the latter actually conflicts with 'keep it simple and practical'",
+      "Holistic thinking applies only to the four dimensions, never to decision-making processes",
+      "This interpretation is correct only for emergency changes"
     ],
-    "answer": 0,
-    "explanation": "Availability Management considers requirements, risks, and the ability of services to meet agreed needs."
+    "answer": 1,
+    "explanation": "A common exam trap: guiding principles are frequently misapplied as excuses for excessive process. Holistic thinking is about awareness of interdependencies, not universal committee approval, which would violate simplicity."
   },
   {
-    "q": "A company has excellent technical solutions but customers do not perceive increased value. Which ITIL principle should guide the organization?",
+    "q": "A monitoring practice detects an anomaly and automatically triggers a predefined remediation script without any human review, per the organization's automation policy. The remediation inadvertently causes a service disruption. Whose practice purpose was most directly compromised?",
     "options": [
-      "Focus on value",
-      "Optimize and automate",
-      "Start where you are",
-      "Keep it simple and practical"
+      "Monitoring and event management — automated response mechanisms were not adequately validated before being trusted to act autonomously",
+      "Only incident management, since disruption occurred",
+      "Only change enablement, since a script counts as an unauthorized change",
+      "No practice purpose was compromised, since automation acted as designed"
     ],
     "answer": 0,
-    "explanation": "Technology alone does not create value; services must support stakeholder outcomes."
+    "explanation": "Monitoring and event management's purpose includes appropriately detecting and responding to events; if automated responses aren't properly validated/governed, the practice has failed its core purpose despite technically 'working as designed'."
   },
   {
-    "q": "A company wants to improve a service value stream. Different teams optimize their own activities, but the end-to-end customer experience does not improve. Which ITIL concept should be applied?",
+    "q": "A team debates whether digital product lifecycle management in ITIL 5 replaces the ITIL 4 service value system, or extends it. What is the accurate relationship?",
     "options": [
-      "Think and work holistically across the value stream",
-      "Increase the number of team-specific metrics",
-      "Allow each team to optimize independently",
-      "Replace collaboration with automation"
+      "It replaces the ITIL 4 service value system entirely with a new incompatible model",
+      "It extends and builds upon the retained ITIL Value System concepts (guiding principles, governance, value chain, practices, continual improvement) with an explicit lifecycle lens for digital products, not a wholesale replacement",
+      "Digital product lifecycle management is unrelated to the ITIL Value System",
+      "The two concepts exist in separate, non-interacting frameworks within the same certification"
     ],
-    "answer": 0,
-    "explanation": "ITIL emphasizes holistic thinking because value is created across the entire system, not isolated activities."
+    "answer": 1,
+    "explanation": "ITIL 5 retains core ITIL 4 structures while adding lifecycle-oriented and product-centric emphasis; it is evolutionary, not a replacement of the underlying value system."
   },
   {
-    "q": "A service desk receives many similar user contacts after a software release. Investigation shows users were not informed about the change. Which practice should have contributed more effectively?",
+    "q": "A user experience researcher argues that 'user experience' and 'warranty' are the same concept because both relate to how a service 'feels' when used. What is the precise distinction?",
     "options": [
-      "Release Management",
-      "Problem Management",
-      "Service Request Management",
-      "IT Asset Management"
+      "They are indeed identical concepts in ITIL 5",
+      "Warranty specifically concerns assurance that a product/service meets agreed performance requirements (availability, capacity, security, continuity); user experience is broader, covering perception and interaction quality that may be influenced by, but is not limited to, warranty factors",
+      "User experience is a subset of utility only, unrelated to warranty",
+      "Warranty only applies to physical products, not digital services"
     ],
-    "answer": 0,
-    "explanation": "Release Management includes making new or changed services available and ensuring appropriate preparation."
+    "answer": 1,
+    "explanation": "Warranty is a defined, narrower assurance concept (performance-related); user experience is broader and can be shaped by utility, warranty, interface design, support quality, etc. — conflating them is a common imprecision the exam tests."
   },
   {
-    "q": "A company wants to improve incident resolution times. Managers propose measuring only the number of incidents closed. What should be considered instead?",
+    "q": "A company's practice for 'workforce and talent management' is scored highly because turnover is low. However, employee engagement surveys reveal widespread disengagement and reluctance to propose improvements. What does this suggest about the chosen metric?",
     "options": [
-      "Whether incidents are resolved in a way that creates value for users",
-      "Whether more incidents can be closed each day",
-      "Whether fewer employees are required",
-      "Whether documentation can be removed"
+      "Low turnover is a perfect proxy for practice success; no issue exists",
+      "Turnover alone is an incomplete metric — the practice's purpose extends to ensuring the organization has the right people with the right skills/culture engaged in continual improvement, which disengagement directly undermines",
+      "This is a facilities management issue, unrelated to workforce and talent management",
+      "Employee engagement is not connected to any ITIL practice"
     ],
-    "answer": 0,
-    "explanation": "ITIL focuses on outcomes and value, not only activity counts."
+    "answer": 1,
+    "explanation": "Another output-vs-outcome trap: retention (an output/proxy) does not guarantee the practice's real purpose — an engaged, skilled, improvement-oriented workforce — is being achieved."
   },
   {
-    "q": "A service provider identifies a recurring failure pattern and creates a known workaround before finding the permanent cause. Which statement is correct?",
+    "q": "During an exam-style case study, a candidate is told a service 'meets all warranty requirements' and asked whether the service is therefore guaranteed to deliver value. What is the correct reasoning?",
     "options": [
-      "This supports incident reduction while Problem Management continues investigation",
-      "This replaces the need for Problem Management",
-      "This means Incident Management failed",
-      "This should always be treated as a service request"
+      "Yes, meeting warranty always guarantees value delivery",
+      "No — value delivery also depends on utility (fitness for purpose) and the broader co-creation context (stakeholder perception, outcomes achieved); warranty alone is necessary but not sufficient",
+      "No, because warranty is irrelevant to value",
+      "Yes, but only if the service also has zero incidents reported"
     ],
-    "answer": 0,
-    "explanation": "Workarounds reduce impact while problem investigation continues."
+    "answer": 1,
+    "explanation": "This tests the core utility+warranty=value relationship precisely: both dimensions (plus the co-creation context) are required; warranty compliance alone doesn't guarantee value."
   },
   {
-    "q": "A company wants to ensure that a new service can support expected demand during peak periods. Which practice is most relevant?",
+    "q": "A CAB (Change Authority) rejects a normal change due to insufficient rollback planning. The requester resubmits it labeled as a 'standard change' to bypass review. What principle and practice failure does this represent?",
     "options": [
-      "Capacity and Performance Management",
-      "Service Request Management",
-      "Relationship Management",
-      "Service Desk"
+      "This is legitimate reclassification and no failure occurs",
+      "This misuses the standard-change category (meant for pre-authorized, well-understood, low-risk changes) to circumvent proper risk evaluation — undermining change enablement's purpose and violating 'collaborate and promote visibility'",
+      "This is only a documentation error with no practice implications",
+      "Standard changes do not require any classification criteria, so this is valid"
     ],
-    "answer": 0,
-    "explanation": "Capacity and Performance Management ensures services meet current and future demand."
+    "answer": 1,
+    "explanation": "Gaming classification categories to avoid scrutiny defeats the purpose of change enablement (balancing risk with delivery speed) and reduces transparency — a nuanced but realistic exam scenario."
   },
   {
-    "q": "A manager believes every improvement must begin by creating a completely new process. Which principle challenges this approach?",
+    "q": "An organization achieves ISO 27001 certification and assumes its information security management practice is therefore 'complete' and needs no further continual improvement. What is wrong with this assumption?",
     "options": [
-      "Start where you are",
-      "Optimize and automate",
-      "Focus on value",
-      "Collaborate and promote visibility"
+      "Nothing; certification is the final state of a practice",
+      "Certification reflects a point-in-time conformance to a standard, not an exemption from ongoing continual improvement — threats, technology, and business context evolve, requiring the practice to keep adapting",
+      "ISO 27001 has no relationship to ITIL practices",
+      "Information security management is not considered a practice in ITIL"
     ],
-    "answer": 0,
-    "explanation": "Existing processes, data, and capabilities should be assessed before creating replacements."
+    "answer": 1,
+    "explanation": "Continual improvement is meant to apply to every practice at every stage, including certified ones — certification is a milestone, not an endpoint, given evolving risk landscapes."
   },
   {
-    "q": "A team improves a service by removing unnecessary activities but keeps activities required for compliance and control. Which principle is demonstrated?",
+    "q": "A digital service's 'utility' is defined during initial design and never revisited, even as customer needs evolve over three years. Users increasingly rely on workarounds outside the platform. What ITIL concept explains why this is problematic?",
     "options": [
-      "Keep it simple and practical",
-      "Remove all governance",
-      "Avoid standardization",
-      "Ignore existing practices"
+      "Utility, like value, is not static — it must be continually reassessed against evolving stakeholder needs (co-creation, continual improvement); freezing it at initial design risks the service losing fitness for purpose over time",
+      "Utility is fixed by definition and cannot change after design",
+      "This is purely a warranty issue, not a utility issue",
+      "Workarounds indicate a service desk failure exclusively"
     ],
     "answer": 0,
-    "explanation": "Simplicity means removing unnecessary complexity while maintaining necessary controls."
+    "explanation": "Fitness for purpose (utility) must track evolving needs; treating it as a one-time design decision contradicts ITIL's continual improvement and value co-creation philosophy."
   },
   {
-    "q": "A service provider and customer disagree about whether a service improvement was successful. What should have been established earlier?",
+    "q": "A practice consultant claims 'service configuration management' and 'IT asset management' are the same practice with different names. What is the precise distinction according to ITIL?",
     "options": [
-      "Clear value expectations and measurable outcomes",
-      "More technical documentation",
-      "Additional internal approvals",
-      "A larger support team"
+      "They are indeed the same practice under different labels",
+      "IT asset management focuses on planning and managing the full lifecycle and financial/contractual/inventory aspects of assets; service configuration management focuses on ensuring accurate information about CIs and their relationships to support other practices — related but distinct purposes",
+      "IT asset management only applies to hardware, and this makes it identical to configuration management for software",
+      "Service configuration management is a subset with no distinct purpose of its own"
     ],
-    "answer": 0,
-    "explanation": "Shared understanding of value avoids disagreement about success."
+    "answer": 1,
+    "explanation": "These are two distinct practices with overlapping subject matter but different core purposes (lifecycle/financial/inventory control vs. relationship/configuration accuracy) — a classic fine-distinction exam question."
   },
   {
-    "q": "A company discovers that several business units use different versions of the same application. Which practice helps maintain accurate information about service components?",
+    "q": "A junior consultant argues that because ITIL 5 is 'AI-native by design,' every management practice must now include an AI component to be compliant. Is this accurate?",
     "options": [
-      "Service Configuration Management",
-      "Relationship Management",
-      "Service Level Management",
-      "Service Desk"
+      "Yes, all practices must incorporate AI to be ITIL 5 compliant",
+      "No — 'AI-native by design' means the framework provides native guidance for governing and integrating AI where relevant and appropriate, not a mandate that every practice must use AI",
+      "AI-native only applies to the service desk practice",
+      "ITIL 5 forbids AI usage in most practices except monitoring"
     ],
-    "answer": 0,
-    "explanation": "Service Configuration Management maintains information about configuration items and relationships."
+    "answer": 1,
+    "explanation": "'AI-native by design' refers to built-in guidance for governing AI adoption responsibly where it's used — it is not a blanket requirement to inject AI into every practice."
   },
   {
-    "q": "A service provider wants to reduce operational risk from changes. Which approach is MOST appropriate?",
+    "q": "A service provider's 'Plan' value chain activity produces a strategic roadmap that is never referenced again by 'Improve' or 'Engage' activities during execution. What systemic risk does this create?",
     "options": [
-      "Assess, authorize, and manage changes according to risk",
-      "Prevent all changes permanently",
-      "Allow every change without review",
-      "Treat all changes identically"
+      "None, since 'Plan' is a one-time activity disconnected from ongoing operations",
+      "Strategic direction can drift from operational reality and improvement efforts may become misaligned with overall direction, since value chain activities are meant to interact continuously, not operate in isolation",
+      "This is expected behavior; 'Plan' should never be revisited",
+      "This only matters if the organization uses Agile methods"
     ],
-    "answer": 0,
-    "explanation": "Change Enablement balances risk and value by applying appropriate controls."
+    "answer": 1,
+    "explanation": "Value chain activities are interconnected and meant to inform each other continuously; treating 'Plan' as a disconnected, one-off output risks strategic-operational misalignment."
   },
   {
-    "q": "A company receives feedback from customers but only uses internal technical metrics to decide improvements. Which ITIL concept is missing?",
+    "q": "A company measures 'guiding principle adherence' using a single organization-wide numeric score computed by averaging self-assessment ratings across all seven principles. A reviewer flags this approach as fundamentally flawed. Why?",
     "options": [
-      "Value co-creation with stakeholders",
-      "More automation",
-      "Additional infrastructure",
-      "More approvals"
+      "There is nothing flawed about this approach",
+      "Guiding principles are contextual — their relative importance shifts depending on the situation, and reducing them to one averaged score obscures which principle(s) are actually critical to a given decision or initiative",
+      "Guiding principles cannot be assessed at all under any circumstances",
+      "Only 'focus on value' can legitimately be measured; the rest are qualitative only"
     ],
-    "answer": 0,
-    "explanation": "Customers and stakeholders contribute to defining and evaluating value."
+    "answer": 1,
+    "explanation": "Guiding principles are meant to be applied contextually, weighing relevance to the specific situation — collapsing them into a single blended score misrepresents how they're meant to guide decisions."
   },
   {
-    "q": "A service provider wants to improve security of services. Which statement BEST reflects ITIL thinking?",
+    "q": "A candidate reads a case study describing a service provider who 'delivers what was contractually specified' but stakeholders still feel underserved. Which concept best explains the gap between contractual compliance and perceived value?",
     "options": [
-      "Security should be integrated into service management activities",
-      "Security should only be handled after incidents occur",
-      "Security is separate from value creation",
-      "Security eliminates the need for continual improvement"
+      "Value is co-created and subjectively perceived by stakeholders based on outcomes, experience, and context — meeting a contract's literal terms does not guarantee that perceived value, especially if requirements were static or outcomes/needs evolved",
+      "This gap cannot exist if the contract was properly written",
+      "Perceived value is irrelevant to ITIL; only contractual compliance matters",
+      "This is exclusively a legal issue, outside the scope of service management"
     ],
     "answer": 0,
-    "explanation": "Information security is a key consideration across service management."
+    "explanation": "ITIL frames value as co-created and perceived, not merely contractually defined — satisfying the letter of an agreement doesn't guarantee stakeholders experience the intended value, especially amid evolving needs."
   },
   {
-    "q": "A team creates a detailed workflow that nobody follows because it adds unnecessary steps. Which improvement is most appropriate?",
+    "q": "A team wants to skip 'Where are we now?' in the continual improvement model for a new initiative, arguing 'we already know our baseline from last year's audit.' Under what condition would this be a legitimate shortcut, and under what condition would it be risky?",
     "options": [
-      "Simplify the workflow while maintaining required controls",
-      "Add additional mandatory steps",
-      "Increase documentation further",
-      "Remove all process ownership"
+      "It is always legitimate to skip regardless of time elapsed or context changes",
+      "It is legitimate only if the prior baseline remains accurate and relevant to current conditions; if significant time has passed or context has changed materially, skipping risks basing improvement plans on stale, inaccurate data",
+      "It is never legitimate to reuse any prior baseline under any circumstances",
+      "This step can be skipped only for initiatives sponsored by IT, not the business"
     ],
-    "answer": 0,
-    "explanation": "ITIL encourages practical processes that create value."
+    "answer": 1,
+    "explanation": "Reusing valid, current data is reasonable and efficient; the risk lies in assuming stale data still reflects reality — this tests nuanced judgment rather than a rigid rule."
   },
   {
-    "q": "A company wants to know whether a supplier continues to support business objectives. Which practice should provide this focus?",
+    "q": "A practice owner for 'monitoring and event management' argues their practice is 'purely technical' and has no connection to value co-creation. What is the counterargument?",
     "options": [
-      "Supplier Management",
-      "Incident Management",
-      "Deployment Management",
-      "Monitoring and Event Management"
+      "The practice owner is correct; monitoring is purely operational with no link to value",
+      "Monitoring and event management enables timely detection of conditions affecting warranty (availability, performance) and utility (functionality), which directly underpins the organization's ability to co-create and assure value with stakeholders",
+      "Monitoring only relates to governance, not value co-creation",
+      "This practice was removed in ITIL 5 and no longer applies"
     ],
-    "answer": 0,
-    "explanation": "Supplier Management ensures suppliers support organizational needs and value."
+    "answer": 1,
+    "explanation": "Even 'technical' practices ultimately serve value co-creation by protecting the utility/warranty stakeholders depend on — a recurring exam theme is connecting seemingly operational practices back to value."
   },
   {
-    "q": "A service provider automates a process that contains unnecessary approvals and delays. The delays increase after automation. What is the best conclusion?",
+    "q": "A vendor proposes an AI governance framework that focuses solely on compliance checklists (e.g., 'model documented: yes/no') without addressing ongoing monitoring of AI decision quality or bias drift over time. Under ITIL 5's approach to responsible AI, what is missing?",
     "options": [
-      "The process should have been optimized before automation",
-      "More automation should immediately be added",
-      "Automation should replace continual improvement",
-      "Approvals should never exist"
+      "Nothing; checklist-based compliance is sufficient for AI governance",
+      "Genuine AI governance requires ongoing oversight of outcomes, risk, and ethical considerations over the AI system's lifecycle, not a one-time compliance checklist — this mirrors ITIL's broader continual-improvement philosophy applied to AI",
+      "AI governance is unrelated to continual improvement principles",
+      "Bias drift is not a legitimate governance concern under ITIL 5"
     ],
-    "answer": 0,
-    "explanation": "Automating inefficient processes can increase inefficiency."
+    "answer": 1,
+    "explanation": "ITIL 5's AI governance guidance reflects the framework's general philosophy: static, one-time compliance is insufficient; ongoing monitoring and improvement is required, especially for evolving AI risk."
+  },
+  {
+    "q": "A candidate is asked to identify the single BEST answer among four technically-true statements about service relationships in a complex multi-tier supply scenario (customer → provider → sub-provider → digital product vendor). What test-taking principle should guide the choice under ITIL 5 exam conventions?",
+    "options": [
+      "Always choose the most detailed and lengthy option, since detail implies correctness",
+      "Choose the option that most completely and precisely reflects ITIL's defined roles and relationship types for the SPECIFIC parties named in the scenario, rather than a generally true but less precisely applicable statement",
+      "Always choose the shortest option to save time",
+      "Choose whichever option mentions 'value co-creation,' since it is always the correct theme"
+    ],
+    "answer": 1,
+    "explanation": "In 'best answer' style questions, precision and specificity to the exact scenario (correct roles/relationship types for the parties described) determines the best answer — not length, buzzwords, or generic truth."
+  },
+  {
+    "q": "A service is described as having excellent utility and warranty, positive user experience scores, and full guiding-principle alignment documented in an audit — yet the sponsor still cancels funding, citing 'this no longer aligns with our digital product strategy.' What does this scenario ultimately demonstrate?",
+    "options": [
+      "The sponsor's decision must be wrong since all measurable factors are positive",
+      "Value is contextual and tied to strategic fit and evolving organizational priorities, not solely to internal service quality metrics — a service can excel operationally yet still lose value/relevance at the portfolio or strategic level",
+      "Utility and warranty guarantee continued funding regardless of strategic context",
+      "This indicates a guiding-principle audit was performed incorrectly"
+    ],
+    "answer": 1,
+    "explanation": "This is a high-difficulty synthesis question: it tests whether the candidate understands that operational excellence (utility/warranty/UX) doesn't override strategic/portfolio-level value judgments — value is ultimately contextual and can shift independent of service quality."
+  },
+  {
+    "q": "A 'digital product' team debates whether their internally-built recommendation engine, used only by other internal teams and never exposed externally, still qualifies as a 'service' under ITIL 5's definitions. What is the correct reasoning?",
+    "options": [
+      "It cannot be a service because it is not customer-facing externally",
+      "A service can exist between internal parties — the consuming internal teams act as customers/users of the recommendation engine, and the same utility/warranty/co-creation concepts apply regardless of whether consumption is internal or external",
+      "Internal tools are governed by a completely separate framework outside ITIL",
+      "It only becomes a service once it is monetized"
+    ],
+    "answer": 1,
+    "explanation": "ITIL's service and value concepts apply to internal consumer relationships just as much as external ones — 'service' is not defined by being customer-facing to the outside world."
+  },
+  {
+    "q": "During a mock exam, a question states a change was 'implemented outside of the normal change process due to time pressure, but was ultimately successful with no negative impact.' Which conclusion is exam-appropriate?",
+    "options": [
+      "Success justifies bypassing the process, so no practice failure occurred",
+      "Even a successful outcome does not validate bypassing change enablement's evaluation and authorization steps — the practice's purpose is to manage risk proactively, and a good outcome from an ungoverned action reflects luck, not a properly functioning practice",
+      "This scenario has no bearing on change enablement, since the change succeeded",
+      "This is a problem management issue exclusively"
+    ],
+    "answer": 1,
+    "explanation": "A classic 'outcome bias' trap: a lucky successful result from bypassing controls does not retroactively validate the bypass — the practice's purpose (risk management via proper evaluation) was still violated."
+  },
+  {
+    "q": "A stakeholder claims that since ITIL 5 retains roughly 40% of ITIL 4 content unchanged, 'anyone certified in ITIL 4 already effectively knows ITIL 5.' What is the most defensible critique of this claim?",
+    "options": [
+      "The claim is entirely accurate and no further study is needed",
+      "While a substantial core is retained, the newly introduced and modified content (roughly 60% new/modified, including lifecycle thinking, expanded relationships, sustainability, and AI governance) represents materially different exam-relevant knowledge that ITIL 4 certification alone does not cover",
+      "ITIL 4 and ITIL 5 are entirely unrelated, sharing no content",
+      "The percentage split is irrelevant since exams only test terminology, not concepts"
+    ],
+    "answer": 1,
+    "explanation": "A meaningful majority of content is new or modified, meaning genuine gaps exist despite retained foundations — this tests whether the candidate understands the scale of what's actually new, not just that some overlap exists."
   }
 ];
