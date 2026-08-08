@@ -1,4 +1,4 @@
-// 50 hard-mode ITIL 5 Foundation practice questions
+// 50 hard-mode ITIL 5 Foundation exam questions
 // Format matches the example provided by the user.
 // These are original scenario-based questions written to test precise
 // understanding of ITIL 5 (and retained ITIL 4) concepts — not reproductions
