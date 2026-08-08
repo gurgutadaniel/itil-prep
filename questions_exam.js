@@ -4,7 +4,7 @@
 // understanding of ITIL 5 (and retained ITIL 4) concepts — not reproductions
 // of any official/copyrighted exam bank.
 
-const questions = [
+export const questions = [
   {
     "q": "A global organization introduces an AI-enabled digital service. The technical team measures success only through system availability and response time. However, business stakeholders complain that the service does not support their desired outcomes. According to ITIL 5, what should the organization focus on first?",
     "options": [
